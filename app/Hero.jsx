@@ -10,25 +10,10 @@ import BetweenScroll from '../components/BetweenScroll';
 export default function Hero() {
   return (
     <div>
-
-              {/* BACKGROUND — stays fixed, full screen, behind everything */}
-
-        <div className="fixed inset-0 z-30 w-full">
-          <LightRays
-            raysOrigin="top"
-            raysColor="var(--theme)"
-            raysSpeed={0.5}
-            lightSpread={5}
-            rayLength={1.2}
-            followMouse={true}
-            mouseInfluence={0.1}
-            noiseAmount={0.1}
-            distortion={0.05}
-          />
-        </div>
       <div className="relative w-full flex justify-center">
 
-
+        <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
+        </div>
 
         {/* CONTENT — scrollable normally */}
         <div className="h-screen border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-[var(--div-shadow)] w-full flex flex-col justify-center text-center">

@@ -17,35 +17,39 @@ const techItems = [
 
 export default function Techs() {
   return (
-    <div className='relative'>
-      <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
-      </div>
+    <div>
+      <div className="relative w-full flex justify-center">
 
-      <div className="h-screen relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow)">
-        <div className="text-5xl lg:text-8xl md:text-7xl font-thin mt-20 text-center mb-20">
-          <ShinyText 
-            text="Technologies"
-            disabled={false}
-            speed={20}
-          />
+        <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
         </div>
 
-        <CurvedLoop 
-          items={techItems}          // ← All tech items with SVGs
-          speed={2}                  // rotation speed
-          curveAmount={20}          // vertical amplitude of the curve
-          direction="left"           // initial direction
-          interactive={true}         // draggable / interactive
-          className="custom-text-style font-thin" 
-        />
+        <div className="h-screen w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow)">
 
+          <div className="text-5xl lg:text-8xl md:text-7xl font-thin mt-20 text-center mb-20">
+            <ShinyText 
+              text="Technologies"
+              disabled={false}
+              speed={20}
+            />
+          </div>
+
+          <CurvedLoop 
+            items={techItems}          // ← All tech items with SVGs
+            speed={2}                  // rotation speed
+            curveAmount={20}          // vertical amplitude of the curve
+            direction="left"           // initial direction
+            interactive={true}         // draggable / interactive
+            className="custom-text-style font-thin" 
+          />
+
+        </div>
       </div>
+
+        <BetweenScroll />
+        <div className="between-section">
+          <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
+        </div>
     
-      <BetweenScroll />
-      <div className="between-section">
-        <h1 className="text-7xl">I Build Your Dream Website..</h1>
-      </div>
-
     </div>
   );
 }
