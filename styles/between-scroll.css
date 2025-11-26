@@ -1,0 +1,120 @@
+/* each between section occupies a viewport and only signals active state */
+
+.between-section {
+    position: relative;
+    height: 100vh;
+    pointer-events: none;
+    /* prevent accidental interactions */
+}
+
+
+/* single fixed text used by all sections (keeps same place on screen) */
+
+.between-section h1 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    text-transform: uppercase;
+    font-weight: 100;
+    background: linear-gradient(to bottom right, var(--theme), white, gray);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0;
+    transition: opacity 600ms cubic-bezier(.2, .9, .2, 1), transform 600ms cubic-bezier(.2, .9, .2, 1);
+    will-change: opacity, transform;
+    pointer-events: none;
+    z-index: 0;
+    /* above page content */
+}
+
+
+/* breathing animation that does NOT touch opacity */
+
+@keyframes breathe {
+    from {
+        letter-spacing: 0px;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        letter-spacing: 2px;
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+}
+
+
+/* active class — fades the text in and runs subtle breathe */
+
+.between-section.active h1 {
+    opacity: 0.6;
+    animation: breathe 6s ease-in-out infinite alternate;
+}
+
+
+/* Create a global background layer behind everything */
+
+#background-layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -20;
+    /* very low so always behind */
+    pointer-events: none;
+    overflow: hidden;
+}
+
+
+/* All between-sections now just act as triggers */
+
+.between-section {
+    position: relative;
+    height: 100vh;
+    z-index: -20;
+    background-color: rgba(255, 100, 255, 0.1);
+}
+
+
+/* Texts live inside the fixed background layer */
+
+#background-layer h1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    font-size: clamp(2rem, 6vw, 6rem);
+    font-weight: 100;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom right, var(--theme), white, gray);
+    -webkit-background-clip: text;
+    background-clip: text;
+    filter: brightness(200%);
+    color: transparent;
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    will-change: opacity, transform;
+}
+
+
+/* breathing animation */
+
+@keyframes breathe {
+    from {
+        letter-spacing: 0px;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    to {
+        letter-spacing: 2px;
+        transform: translate(-50%, -50%) scale(1.02);
+    }
+}
+
+
+/* active state */
+
+#background-layer h1.active {
+    opacity: 0.6;
+    animation: breathe 6s ease-in-out infinite alternate;
+}

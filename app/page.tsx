@@ -1,10 +1,10 @@
 import Hero from "./Hero";
 import Techs from "./Techs";
-import TopNav from "./TopNav";
+import TopNav from "./TopNav"
 
 export default function Home() {
   return (
-    <div className="">
+    <div className="flex flex-col">
       <TopNav />
       <Hero />
       <Techs />

@@ -1,6 +1,6 @@
 'use client'
 
-import Dock from './components/Dock';
+import Dock from '../components/Dock';
 import {
   VscHome,
   VscAccount,
@@ -24,7 +24,7 @@ export default function TopNav() {
     <div className="z-50 fixed bottom-5 left-1/2 right-1/2">
       <Dock 
         items={items}
-        className='backdrop-blur-2xl'
+        className='backdrop-blur-2xl border'
         panelHeight={68}
         baseItemSize={50}
         magnification={70}

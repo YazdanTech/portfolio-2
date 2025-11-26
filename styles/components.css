@@ -17,7 +17,9 @@
     border: 0.15em solid var(--glow-color);
     border-radius: 0.45em;
     background: none;
+    backdrop-filter: blur(20px);
     perspective: 2em;
+    z-index: 30;
     font-size: 1.4em;
     -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
     -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
@@ -43,6 +45,7 @@
     position: absolute;
     top: 0;
     bottom: 0;
+    backdrop-filter: blur(20px);
     left: 0;
     right: 0;
     opacity: 0.7;
@@ -56,6 +59,7 @@
     content: "";
     position: absolute;
     top: 0;
+    backdrop-filter: blur(20px);
     left: 0;
     right: 0;
     bottom: 0;

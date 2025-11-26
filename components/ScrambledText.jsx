@@ -46,7 +46,7 @@ const ScrambledText = ({
               chars: scrambleChars,
               speed
             },
-            ease: 'none'
+            ease: '20'
           });
         }
       });
@@ -64,7 +64,7 @@ const ScrambledText = ({
   return (
     <div
       ref={rootRef}
-      className={`max-w-[800px] font-mono text-[clamp(14px,4vw,32px)] text-white ${className}`}
+      className={`max-w-[800px] font-mono ${className}`}
       style={style}
     >
       <p>{children}</p>

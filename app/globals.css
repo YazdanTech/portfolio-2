@@ -3,6 +3,7 @@
 @import "tailwindcss";
 @import "./../styles/animations.css";
 @import "./../styles/components.css";
+@import "./../styles/between-scroll.css";
 
 /* Plugins */
 
@@ -12,10 +13,10 @@
 
 :root {
     /* your variables */
-    --theme: #339933;
-    --color-theme: #339933;
-    --glow-color: #339933;
-    --div-shadow: 0px 0px 10px black, 0px 0px 50px var(--theme), 0px 0px 100px var(--theme), 0px 0px 150px var(--theme), 0px 0px 300px var(--theme);
+    --theme: #5f0068;
+    --color-theme: #5f0068;
+    --glow-color: #5f0068;
+    --div-shadow: 0px 0px 10px black, 0px 0px 150px black, 0px 0px 100px black, 0px 0px 300px black;
 }
 
 
