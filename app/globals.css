@@ -13,9 +13,9 @@
 
 :root {
     /* your variables */
-    --theme: #5f0068;
-    --color-theme: #5f0068;
-    --glow-color: #5f0068;
+    --theme: #006849;
+    --color-theme: #006849;
+    --glow-color: #006849;
     --div-shadow: 0px 0px 10px black, 0px 0px 150px black, 0px 0px 100px black, 0px 0px 300px black;
 }
 
