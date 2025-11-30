@@ -22,7 +22,7 @@ export default function Hero() {
               <ShinyText 
                 text="Yazdan Codes"
                 disabled={false}
-                speed={6}
+                speed={3}
               />
             </div>
 

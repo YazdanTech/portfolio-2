@@ -4,6 +4,8 @@
 @import "./../styles/animations.css";
 @import "./../styles/components.css";
 @import "./../styles/between-scroll.css";
+@import "./../styles/shiny-btn.css";
+@import "./../styles/neon-btn.css";
 
 /* Plugins */
 
@@ -14,6 +16,7 @@
 :root {
     /* your variables */
     --theme: #006849;
+    --theme-transparent: #00684971;
     --color-theme: #006849;
     --glow-color: #006849;
     --div-shadow: 0px 0px 10px black, 0px 0px 150px black, 0px 0px 100px black, 0px 0px 300px black;

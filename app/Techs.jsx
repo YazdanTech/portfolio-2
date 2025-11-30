@@ -80,7 +80,7 @@ export default function Techs() {
             <ShinyText 
               text="Technologies"
               disabled={false}
-              speed={20}
+              speed={3}
             />
           </div>
 

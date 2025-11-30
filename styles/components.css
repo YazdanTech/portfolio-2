@@ -17,7 +17,6 @@
     border: 0.15em solid var(--glow-color);
     border-radius: 0.45em;
     background: none;
-    backdrop-filter: blur(20px);
     perspective: 2em;
     z-index: 30;
     font-size: 1.4em;

@@ -1,0 +1,18 @@
+.neon-btn {
+    padding: 15px 25px;
+    background-color: #050801;
+    border: 1px solid var(--theme-transparent);
+    font-size: 18px;
+    border-radius: 360px;
+    overflow: hidden;
+    transition: 0.5s ease-in-out all;
+    cursor: pointer;
+}
+
+.neon-btn:hover {
+    border: 1px solid var(--theme);
+    background-color: transparent;
+    color: black;
+    transform: scale(0.9);
+    box-shadow: 0px 0px 30px var(--theme-transparent);
+}
