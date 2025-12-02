@@ -6,6 +6,7 @@
 @import "./../styles/between-scroll.css";
 @import "./../styles/shiny-btn.css";
 @import "./../styles/neon-btn.css";
+@import "./../styles/cta.css";
 
 /* Plugins */
 
@@ -19,6 +20,11 @@
     --theme-transparent: #00684971;
     --color-theme: #006849;
     --glow-color: #006849;
+    --theme-2: #390068;
+    --theme-2-transparent: #3900686e;
+    --color-theme-2: #390068;
+    --shadow-1: 0px 0px 20px var(--theme);
+    --shadow-2: 0px 0px 20px var(--theme-2);
     --div-shadow: 0px 0px 10px black, 0px 0px 150px black, 0px 0px 100px black, 0px 0px 300px black;
 }
 

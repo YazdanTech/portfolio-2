@@ -2,6 +2,7 @@ import Hero from "./Hero";
 import Techs from "./Techs";
 import TopNav from "./TopNav";
 import Experience from "./Experience";
+import AboutMe from "./AboutMe";
 
 import LightRays from '../components/LightRays';
 
@@ -29,6 +30,7 @@ export default function Home() {
       <Hero />
       <Techs />
       <Experience />
+      <AboutMe />
     </div>
   );
 }
