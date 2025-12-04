@@ -695,10 +695,10 @@ const MagicBento = ({
                     </div>
 
                     <div className="flex justify-evenly my-5">
-                      <button class="neon-btn">
+                      <button className="neon-btn">
                         Github
                       </button>
-                      <button class="shiny-cta">
+                      <button className="shiny-cta">
                         <span>View Website</span>
                       </button>
 

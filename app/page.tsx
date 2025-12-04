@@ -3,6 +3,7 @@ import Techs from "./Techs";
 import TopNav from "./TopNav";
 import Experience from "./Experience";
 import AboutMe from "./AboutMe";
+import Footer from "./Footer";
 
 import LightRays from '../components/LightRays';
 
@@ -31,6 +32,7 @@ export default function Home() {
       <Techs />
       <Experience />
       <AboutMe />
+      <Footer />
     </div>
   );
 }

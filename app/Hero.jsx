@@ -40,12 +40,12 @@ export default function Hero() {
               </ScrambledText>
             </div>
 
-            <div className="flex p-5 w-full justify-center gap-5">
-              <button className="glowing-btn">
+            <div className="flex p-5 w-full justify-center gap-5 flex-wrap">
+              <button className="glowing-btn mb-10">
                 <span className="glowing-txt">CO<span className="faulty-letter">NTA</span>CT ME</span>
               </button>
-              <button className="glowing-btn delay-1000">
-                <span className="glowing-txt delay-1000">WORK<span className="faulty-letter"> S</span>AMPLES</span>
+              <button className="glowing-btn glowing-btn-2 delay-1000">
+                <span className="glowing-txt glowing-txt-2 delay-1000">WORK<span className="faulty-letter"> S</span>AMPLES</span>
               </button>
             </div>
 

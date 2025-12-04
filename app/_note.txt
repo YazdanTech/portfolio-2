@@ -1,0 +1,11 @@
+Footer:
+  some text to encourage
+  links to different parts
+  email for contact
+  social media
+  copyright and design by
+
+Contact:
+  by whatsap
+  by sending email
+

@@ -14,7 +14,7 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
     text-transform: uppercase;
     font-weight: 100;
     background: linear-gradient(to bottom right, var(--theme), white, var(--theme));
@@ -35,11 +35,11 @@
 @keyframes breathe {
     from {
         letter-spacing: 0px;
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%);
     }
     to {
         letter-spacing: 2px;
-        transform: translate(-50%, -50%) scale(1.02);
+        transform: translate(-50%, -50%);
     }
 }
 
@@ -103,11 +103,11 @@
 @keyframes breathe {
     from {
         letter-spacing: 0px;
-        transform: translate(-50%, -50%) scale(1);
+        transform: translate(-50%, -50%);
     }
     to {
         letter-spacing: 2px;
-        transform: translate(-50%, -50%) scale(1.2);
+        transform: translate(-50%, -50%);
     }
 }
 
