@@ -82,7 +82,9 @@ export default function Footer() {
                   </div>
               </div>
               </div>
-              <div className="copy-right"></div>
+              <div className="copy-right mt-5 text-center">
+                <span>© 2025 Targoon. All rights reserved. Designed & developed by Targoon.</span>
+              </div>
             </div>
           </div>
         

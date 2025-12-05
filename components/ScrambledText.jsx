@@ -64,7 +64,7 @@ const ScrambledText = ({
   return (
     <div
       ref={rootRef}
-      className={`max-w-[800px] font-mono ${className}`}
+      className={`max-w-[800px] inconsolata ${className}`}
       style={style}
     >
       <p>{children}</p>

@@ -694,7 +694,7 @@ const MagicBento = ({
                       {card.description}
                     </div>
 
-                    <div className="flex justify-evenly my-5">
+                    <div className="flex justify-evenly my-3">
                       <button className="neon-btn">
                         Github
                       </button>

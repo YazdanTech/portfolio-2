@@ -83,11 +83,12 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, -50%);
     font-size: clamp(2rem, 6vw, 6rem);
     font-weight: 100;
     text-transform: uppercase;
-    background: linear-gradient(to bottom right, white 10%, var(--theme) 50%, rgba(255, 255, 255, 0.452) 90%);
+    background: linear-gradient(to bottom right, white 10%, var(--theme-2) 50%, var(--theme) 60%);
+    text-shadow: 0px 0px 20px black;
     -webkit-background-clip: text;
     background-clip: text;
     filter: brightness(200%);
@@ -100,13 +101,13 @@
 
 /* breathing animation */
 
-@keyframes breathe {
+@keyframes breath {
     from {
         letter-spacing: 0px;
         transform: translate(-50%, -50%);
     }
     to {
-        letter-spacing: 2px;
+        letter-spacing: 1px;
         transform: translate(-50%, -50%);
     }
 }
@@ -116,5 +117,5 @@
 
 #background-layer h1.active {
     opacity: 0.6;
-    animation: breathe 6s ease-in-out infinite alternate;
+    animation: breath 6s ease-in-out infinite alternate;
 }
