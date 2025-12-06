@@ -1,9 +1,9 @@
 
 'use client'
-import ShinyText from '../components/ShinyText';
-import LightRays from '../components/LightRays';
-import ScrambledText from '../components/ScrambledText';
-import BetweenScroll from '../components/BetweenScroll';
+import ShinyText from '../../components/ShinyText';
+import LightRays from '../../components/LightRays';
+import ScrambledText from '../../components/ScrambledText';
+import BetweenScroll from '../../components/BetweenScroll';
 
 
 

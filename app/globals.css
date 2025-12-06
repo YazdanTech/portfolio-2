@@ -5,9 +5,13 @@
 @import "./../styles/components.css";
 @import "./../styles/between-scroll.css";
 @import "./../styles/shiny-btn.css";
+@import "./../styles/shiny-border.css";
 @import "./../styles/neon-btn.css";
 @import "./../styles/cta.css";
 @import "./../styles/social-media.css";
+@import "./../styles/bubbles.css";
+@import "./../styles/gradient-text.css";
+@import "./../styles/tabs.css";
 
 /* Plugins */
 
@@ -26,7 +30,9 @@
     --color-theme-2: #390068;
     --shadow-1: 0px 0px 20px var(--theme);
     --shadow-2: 0px 0px 20px var(--theme-2);
-    --div-shadow: 0px 0px 10px black, 0px 0px 150px black, 0px 0px 100px black, 0px 0px 300px black;
+    --div-shadow: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px black, 0px 0px 200px black, 0px 0px 300px black, 0px 0px 500px black;
+    --shadow-black: 0px 0px 30px black;
+    --subtle: rgba(255, 255, 255, 0.075);
 }
 
 .inconsolata {

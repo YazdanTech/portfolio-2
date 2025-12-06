@@ -17,10 +17,11 @@
     transform: translate(-50%, -50%);
     text-transform: uppercase;
     font-weight: 100;
-    background: linear-gradient(to bottom right, var(--theme), white, var(--theme));
-    -webkit-background-clip: text;
+    background: linear-gradient(45deg, white, var(--theme), var(--theme-2), white);
+    background-size: 300% 100%;
     background-clip: text;
-    color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     opacity: 0;
     transition: opacity 600ms cubic-bezier(.2, .9, .2, 1), transform 600ms cubic-bezier(.2, .9, .2, 1);
     will-change: opacity, transform;
@@ -30,25 +31,11 @@
 }
 
 
-/* breathing animation that does NOT touch opacity */
-
-@keyframes breathe {
-    from {
-        letter-spacing: 0px;
-        transform: translate(-50%, -50%);
-    }
-    to {
-        letter-spacing: 2px;
-        transform: translate(-50%, -50%);
-    }
-}
-
-
 /* active class — fades the text in and runs subtle breathe */
 
 .between-section.active h1 {
     opacity: 0.6;
-    animation: breathe 6s ease-in-out infinite alternate;
+    animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
 }
 
 
@@ -73,7 +60,7 @@
     position: relative;
     height: 100vh;
     z-index: -20;
-    background-color: #00684948;
+    background-color: black;
 }
 
 
@@ -87,12 +74,13 @@
     font-size: clamp(2rem, 6vw, 6rem);
     font-weight: 100;
     text-transform: uppercase;
-    background: linear-gradient(to bottom right, white 10%, var(--theme-2) 50%, var(--theme) 60%);
     text-shadow: 0px 0px 20px black;
-    -webkit-background-clip: text;
-    background-clip: text;
     filter: brightness(200%);
-    color: transparent;
+    background: linear-gradient(45deg, white, var(--theme), var(--theme-2), white);
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     opacity: 0;
     transition: opacity 0.6s ease, transform 0.6s ease;
     will-change: opacity, transform;
@@ -117,5 +105,14 @@
 
 #background-layer h1.active {
     opacity: 0.6;
-    animation: breath 6s ease-in-out infinite alternate;
+    animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
+}
+
+@keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }

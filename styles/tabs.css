@@ -1,0 +1,98 @@
+label {
+    display: block;
+    color: white;
+    font-size: 1.5rem;
+    margin-top: 50px;
+    margin-bottom: 10px;
+    font-weight: 100;
+}
+
+input,
+textarea {
+    width: calc(100% - 10px);
+    padding: 10px;
+    margin-left: 10px;
+    border: 1px solid var(--theme);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    font-family: "outfit", "Nuniro", arial;
+    outline: none;
+    transition: all ease 2s;
+    font-weight: 100;
+}
+
+input:hover::placeholder,
+textarea:hover::placeholder {
+    color: rgba(255, 255, 255, 0.089);
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-family: "outfit", "Nuniro", arial;
+    transition: 0.6s ease all;
+}
+
+input:hover,
+textarea:hover {
+    background-color: rgba(0, 0, 0, 0.055);
+    border: 1px solid transparent;
+    border-left: 1px solid var(--theme);
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--theme);
+    box-shadow: 0 5px 30px black;
+    transform: translate(0px, -5px);
+}
+
+#whatsapp-btn {
+    background: transparent;
+    color: var(--theme);
+    font-weight: 200;
+    font-family: "outfit", "Nuniro", arial;
+    border: 1px solid var(--theme);
+    padding: 12px 30px;
+    font-size: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all ease 2s;
+    margin-top: 20px;
+}
+
+#whatsapp-btn:hover {
+    color: var(--theme-2);
+    transition: all ease 0.6s;
+    background-color: black;
+    border: 1px solid var(--theme-2);
+    box-shadow: 0px 5px 30px black;
+    transform: translate(0px, -5px);
+}
+
+
+/* base state: invisible */
+
+.overlay {
+    position: absolute;
+    /* covers the form */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    opacity: 0;
+    pointer-events: none;
+    /* so clicks don't get blocked */
+    transition: opacity .5s ease;
+    z-index: 50;
+    /* ABOVE content */
+}
+
+
+/* visible state: fade in */
+
+.overlay.visible {
+    opacity: 1;
+    pointer-events: auto;
+    /* block clicks while fading */
+}

@@ -1,7 +1,7 @@
 
-import ShinyText from '../components/ShinyText'
-import BetweenScroll from "../components/BetweenScroll";
-import CTA from "../components/CTABTN"
+import ShinyText from '../../components/ShinyText'
+import BetweenScroll from "../../components/BetweenScroll";
+import Bubbles from "../../components/Bubbles"
 
 
 export default function AboutMe() {
@@ -9,8 +9,10 @@ export default function AboutMe() {
     <div>
       <div className="relative w-full flex justify-center">
 
-        <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
+        <div className="absolute z-30 bg-black top-0 right-0 bottom-0 left-0">
         </div>
+
+        <Bubbles />
 
         <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow) pb-20">
 
@@ -23,32 +25,32 @@ export default function AboutMe() {
           </div>
 
           <div className='flex flex-col gap-5 p-5 lg:flex-row flex-wrap justify-center'>
-            <div className="text-left  p-5 lg:w-[45%] border border-(--theme) shadow-(--shadow-2) ease duration-700 hover:border-(--theme-2) hover:shadow-(--shadow-1)">
-              <h1 className='text-5xl mb-10'>
+            <div className="text-left p-5 lg:w-[45%] delay-0 hover:-translate-y-2 z-40 shiny-border">
+              <h1 className='text-5xl mb-10 gradient-text'>
                 I Am
               </h1>
               <p>
                 a full-stack developer focused on building fast, scalable, and visually consistent web applications. My work combines clean engineering with thoughtful interface design, allowing businesses to translate ideas into reliable, production-ready digital products.
               </p>
             </div>
-            <div className="text-left  p-5 lg:w-[45%] border border-(--theme) shadow-(--shadow-2) ease duration-700 hover:border-(--theme-2) hover:shadow-(--shadow-1)">
-              <h1 className='text-5xl mb-10'>
+            <div className="text-left p-5 lg:w-[45%] delay-1000 hover:-translate-y-2 z-40 shiny-border">
+              <h1 className='text-5xl mb-10 gradient-text'>
                 I Specialize
               </h1>
               <p>
                 in Python, Django REST Framework, JavaScript, React, and Next.js, delivering solutions that perform under real-world conditions. Whether it is an API, a marketing site, or a complex web platform, I approach every project with attention to detail, efficient architecture, and measurable results.
               </p>
             </div>
-            <div className="text-left  p-5 lg:w-[45%] border border-(--theme) shadow-(--shadow-2) ease duration-700 hover:border-(--theme-2) hover:shadow-(--shadow-1)">
-              <h1 className='text-5xl mb-10'>
+            <div className="text-left p-5 lg:w-[45%] delay-1000 hover:-translate-y-2 z-40 shiny-border">
+              <h1 className='text-5xl mb-10 gradient-text'>
                 Clients Work With Me
               </h1>
               <p>
                 because I communicate clearly, understand requirements without hand-holding, and deliver on time. I care about performance, maintainability, and long-term stability—not disposable code or shortcuts.
               </p>
             </div>
-            <div className="text-left  p-5 lg:w-[45%] border border-(--theme) shadow-(--shadow-2) ease duration-700 hover:border-(--theme-2) hover:shadow-(--shadow-1)">
-              <h1 className='text-5xl mb-10'>
+            <div className="text-left p-5 lg:w-[45%] delay-1000 hover:-translate-y-2 z-40 shiny-border">
+              <h1 className='text-5xl mb-10 gradient-text'>
                 If You Need Someone
               </h1>
               <p>

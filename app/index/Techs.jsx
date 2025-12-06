@@ -1,7 +1,7 @@
-import ShinyText from '../components/ShinyText';
-import CurvedLoop from '../components/CurvedLoop';
-import InfiniteMenu from '../components/InfiniteMenu'
-import BetweenScroll from "../components/BetweenScroll";
+import ShinyText from '../../components/ShinyText';
+import CurvedLoop from '../../components/CurvedLoop';
+import InfiniteMenu from '../../components/InfiniteMenu'
+import BetweenScroll from "../../components/BetweenScroll";
 
 const items = [
   {
@@ -74,7 +74,7 @@ export default function Techs() {
         <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
         </div>
 
-        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow)">
+        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow) bg-[#111111]">
 
           <div className="text-5xl lg:text-8xl md:text-7xl font-thin mt-20 text-center mb-20">
             <ShinyText 

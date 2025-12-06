@@ -1,7 +1,7 @@
 
-import MagicBento from '../components/MagicBento'
-import ShinyText from '../components/ShinyText'
-import BetweenScroll from "../components/BetweenScroll";
+import MagicBento from '../../components/MagicBento'
+import ShinyText from '../../components/ShinyText'
+import BetweenScroll from "../../components/BetweenScroll";
 
 export default function Experience() {
   return (

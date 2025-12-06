@@ -1,5 +1,5 @@
-import ShinyText from '../components/ShinyText';
-import CopyButton from "../components/CopyButton";
+import ShinyText from '../../components/ShinyText';
+import CopyButton from "../../components/CopyButton";
 
 export default function Footer() {
   return (

@@ -1,9 +1,10 @@
-import Hero from "./Hero";
-import Techs from "./Techs";
-import TopNav from "./TopNav";
-import Experience from "./Experience";
-import AboutMe from "./AboutMe";
-import Footer from "./Footer";
+import Hero from "./index/Hero";
+import Techs from "./index/Techs";
+import TopNav from "./index/TopNav";
+import Experience from "./index/Experience";
+import AboutMe from "./index/AboutMe";
+import Footer from "./index/Footer";
+import ContactMe from "./index/ContactMe";
 
 import LightRays from '../components/LightRays';
 
@@ -32,6 +33,7 @@ export default function Home() {
       <Techs />
       <Experience />
       <AboutMe />
+      <ContactMe />
       <Footer />
     </div>
   );
