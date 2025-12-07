@@ -14,7 +14,7 @@ export default function AboutMe() {
 
         <Bubbles />
 
-        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow) pb-20">
+        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme-2) border-t border-t-(--theme-2) shadow-(--div-shadow) pb-20">
 
           <div className="text-5xl lg:text-8xl md:text-7xl font-thin my-30 text-center">
             <ShinyText 

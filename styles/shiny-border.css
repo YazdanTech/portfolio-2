@@ -89,6 +89,10 @@
     opacity: 0.6;
 }
 
+.contact .shiny-border::after {
+    width: 400%;
+}
+
 .shiny-border span {
     z-index: 1;
     &::before {

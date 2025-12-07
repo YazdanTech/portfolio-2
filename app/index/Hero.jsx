@@ -16,9 +16,9 @@ export default function Hero() {
         </div>
 
         {/* CONTENT — scrollable normally */}
-        <div className="h-screen border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-[var(--div-shadow)] w-full flex flex-col justify-center text-center">
+        <div className="h-screen border-b z-40 border-b-(--theme) shadow-[var(--div-shadow)] w-full flex flex-col justify-center text-center">
             
-            <div className="text-5xl lg:text-8xl md:text-7xl font-thin mb-10 ">
+            <div className="text-5xl lg:text-8xl md:text-7xl font-thin mb-3 ">
               <ShinyText 
                 text="Yazdan Codes"
                 disabled={false}
@@ -26,11 +26,10 @@ export default function Hero() {
               />
             </div>
 
-            <div className="luxury-line"></div>
 
-            <div className=" flex justify-center my-10">
+            <div className=" flex justify-center">
               <ScrambledText
-                className="scrambled-text-demo text-2xl text-gray-500"
+                className="scrambled-text-demo text-xl my-8 text-gray-500"
                 radius={50}
                 duration={5}
                 speed={1}
@@ -40,7 +39,13 @@ export default function Hero() {
               </ScrambledText>
             </div>
 
-            <div className="flex p-5 w-full justify-center gap-5 gap-y-15 flex-wrap">
+            <div className="luxury-line"></div>
+
+            <div className="text-center mt-5">
+              <h3 className='gradient-text text-2xl'>I Bring Visualizations Into Web & Online</h3>
+            </div>
+
+            <div className="flex p-5 w-full justify-center gap-5 gap-y-15 mt-10 flex-wrap">
               <button className="glowing-btn">
                 <span className="glowing-txt">CO<span className="faulty-letter">NTA</span>CT ME</span>
               </button>

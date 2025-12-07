@@ -1,6 +1,6 @@
 .gradient-text {
     font-weight: 100;
-    text-transform: uppercase;
+    text-transform: capitalize;
     background: linear-gradient(90deg, var(--theme), white, var(--theme-2));
     background-size: 300% 100%;
     background-clip: text;

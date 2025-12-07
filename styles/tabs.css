@@ -36,36 +36,38 @@ input:hover,
 textarea:hover {
     background-color: rgba(0, 0, 0, 0.055);
     border: 1px solid transparent;
-    border-left: 1px solid var(--theme);
+    border-left: 1px solid var(--theme-2);
 }
 
 input:focus,
 textarea:focus {
-    border-color: var(--theme);
+    border-color: var(--theme-2);
     box-shadow: 0 5px 30px black;
     transform: translate(0px, -5px);
 }
 
-#whatsapp-btn {
-    background: transparent;
+#btn {
+    background: black;
     color: var(--theme);
-    font-weight: 200;
+    font-weight: 400;
+    margin: 0 auto;
+    box-shadow: 0px 0px 50px var(--theme);
     font-family: "outfit", "Nuniro", arial;
     border: 1px solid var(--theme);
     padding: 12px 30px;
-    font-size: 1rem;
+    font-size: 1.2rem;
     border-radius: 30px;
     cursor: pointer;
     transition: all ease 2s;
     margin-top: 20px;
 }
 
-#whatsapp-btn:hover {
+#btn:hover {
     color: var(--theme-2);
+    box-shadow: 0px 0px 50px var(--theme-2);
     transition: all ease 0.6s;
     background-color: black;
     border: 1px solid var(--theme-2);
-    box-shadow: 0px 5px 30px black;
     transform: translate(0px, -5px);
 }
 
@@ -83,7 +85,7 @@ textarea:focus {
     opacity: 0;
     pointer-events: none;
     /* so clicks don't get blocked */
-    transition: opacity .5s ease;
+    transition: opacity 1s ease;
     z-index: 50;
     /* ABOVE content */
 }
@@ -95,4 +97,17 @@ textarea:focus {
     opacity: 1;
     pointer-events: auto;
     /* block clicks while fading */
+}
+
+.tab-active {
+    border-bottom: 1px solid var(--theme);
+    color: var(--theme);
+}
+
+.error-box {
+    padding: 10px;
+    border: 1px solid red;
+    color: red;
+    margin-bottom: 20px;
+    font-size: 14px;
 }

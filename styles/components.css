@@ -32,7 +32,6 @@
     text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
     float: left;
     font-weight: bold;
-    letter-spacing: 2px;
     animation: text-flicker 3s linear infinite;
 }
 
