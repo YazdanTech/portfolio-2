@@ -21,16 +21,20 @@
 
 :root {
     /* your variables */
-    --theme: #006849;
-    --theme-transparent: #00684971;
-    --color-theme: #006849;
-    --glow-color: #006849;
-    --theme-2: #390068;
-    --theme-2-transparent: #3900686e;
-    --color-theme-2: #390068;
+    --black: #010207;
+    --white: #DDEEDF;
+    --gray: #BFAFB2;
+    --theme: #636c77;
+    --theme-transparent: #636c77;
+    --theme-2: #32174D;
+    --theme-2-transparent: #32174D;
     --shadow-1: 0px 0px 20px var(--theme);
     --shadow-2: 0px 0px 20px var(--theme-2);
+    --shadow-s-1: 0px 0px 50px var(--theme);
+    --shadow-div: 5px 5px 20px black;
+    --shadow-div-hover: 10px 20px 40px black;
     --div-shadow: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px black, 0px 0px 200px black, 0px 0px 300px black, 0px 0px 500px black;
+    --chaotic-shadow: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px var(--theme-2), 0px 0px 200px var(--theme-2), 0px 0px 300px var(--theme-2), 0px 0px 500px var(--theme-2);
     --shadow-black: 0px 0px 30px black;
     --subtle: rgba(255, 255, 255, 0.075);
 }
@@ -52,7 +56,7 @@
 
 @layer base {
     body {
-        @apply bg-black text-gray-200 font-light;
+        @apply bg-(--black) text-(--white) font-light;
     }
 }
 

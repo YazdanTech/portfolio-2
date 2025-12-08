@@ -627,7 +627,7 @@ const MagicBento = ({
       <BentoCardGrid gridRef={gridRef}>
         <div className="card-responsive flex flex-col md:flex-row md:flex-wrap md:justify-evenly w-full max-w-[1200px] gap-5">
           {cardData.map((card, index) => {
-            const baseClassName = `card relative md:w-[32%] rounded-[20px] border border-solid font-light overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-1 ${
+            const baseClassName = `card relative md:w-[32%] border border-solid font-light overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-1 ${
               enableBorderGlow ? 'card--border-glow' : ''
             }`;
 
@@ -654,8 +654,8 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="flex-col align-center w-full bg-black p-3 h-full">
-                    <div className="relative w-full h-64 rounded-2xl hover:scale-103 transition-all ease-in-out duration-700 hover:shadow-[0px_0px_30px_var(--theme)]">
+                  <div className="flex-col align-center w-full bg-[#00000077] p-3 h-full">
+                    <div className="relative w-full h-64 scale-103 transition-all ease-in-out duration-700 hover:shadow-[0px_0px_30px_var(--theme)]">
                       <Image
                         src={`/experience/${card.image}`}
                         alt=""

@@ -1,8 +1,8 @@
 
-import ShinyText from '../../components/ShinyText'
-import BetweenScroll from "../../components/BetweenScroll";
-import Bubbles from "../../components/Bubbles"
-import Tabs from "../../components/Tabs"
+import ShinyText from '../../components/open source/ShinyText'
+import BetweenScroll from "../../components/mine/BetweenScroll";
+import Bubbles from "../../components/mine/Bubbles"
+import Tabs from "../../components/mine/Tabs"
 
 
 export default function AboutMe() {

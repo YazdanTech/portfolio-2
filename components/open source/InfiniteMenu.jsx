@@ -1008,13 +1008,14 @@ export default function InfiniteMenu({ items = [] }) {
       translate-x-[-90%] -translate-y-1/2
 
       /* MOBILE: DESCRIPTION GOES BOTTOM */
-      max-sm:bottom-[10%]
+      max-sm:bottom-[5%]
       max-sm:top-auto
       max-sm:left-1/2
       max-sm:right-auto
       max-sm:translate-x-[-50%]
       max-sm:-translate-y-0
-      max-sm:max-w-[20ch]
+      max-sm:max-w-[40ch]
+      max-sm:w-[30ch]
       max-sm:text-center
 
       ${

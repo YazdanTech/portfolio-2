@@ -1,6 +1,6 @@
 'use client'
 
-import Dock from '../../components/Dock';
+import Dock from '../../components/open source/Dock';
 import {
   VscHome,
   VscAccount,

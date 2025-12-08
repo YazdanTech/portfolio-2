@@ -149,6 +149,18 @@
     }
 }
 
+@keyframes gradient-angle-r {
+    to {
+        --gradient-angle: -360deg;
+    }
+}
+
+@keyframes shimmer-r {
+    to {
+        rotate: -360deg;
+    }
+}
+
 @keyframes breathe {
     from,
     to {
@@ -157,4 +169,20 @@
     50% {
         scale: 1.2;
     }
+}
+
+.shiny-cta-2::after {
+    --animation: shimmer-r linear infinite;
+}
+
+.shiny-cta-2 {
+    --animation: gradient-angle-r linear infinite;
+}
+
+.shiny-cta-slow::after {
+    animation-duration: 10s;
+}
+
+.shiny-cta-slow {
+    animation-duration: 10s;
 }

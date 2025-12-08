@@ -1,5 +1,5 @@
-import ShinyText from '../../components/ShinyText';
-import CopyButton from "../../components/CopyButton";
+import ShinyText from '../../components/open source/ShinyText';
+import CopyButton from "../../components/mine/CopyButton";
 
 export default function Footer() {
   return (
@@ -9,11 +9,11 @@ export default function Footer() {
         <div className="absolute z-20 bg-black top-0 right-0 bottom-0 left-0">
         </div>
 
-        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow) pb-20">
+        <div className="min-h-max w-full relative z-40 border-t border-t-black shadow-(--chaotic-shadow) pb-20 py-20">
 
           <div className="flex flex-col m-5 pt-10 p-5 border gap-5 shadow-(--shadow-2)">
             <div className="flex flex-col lg:flex-row gap-20 ">
-              <div className="text-5xl lg:text-4xl md:text-4xl font-thin text-left lg:w-[32%]">
+              <div className="text-4xl lg:text-4xl md:text-5xl font-thin text-left lg:w-[32%]">
                 <ShinyText 
                   text="Overthinking wastes time. Figure things out by action."
                   disabled={false}
@@ -82,7 +82,7 @@ export default function Footer() {
                   </div>
               </div>
               </div>
-              <div className="copy-right mt-5 text-center">
+              <div className="copy-right mt-20 lg:mt-10 text-center text-md opacity-50">
                 <span>© 2025 Targoon. All rights reserved. Designed & developed by Targoon.</span>
               </div>
             </div>

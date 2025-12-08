@@ -5,16 +5,15 @@
     height: 1px;
     margin: 0 auto;
     background: linear-gradient( to left, transparent 0%, var(--theme) 50%, transparent 100%);
-    backdrop-filter: blur(20px);
     border-radius: 999px;
 }
 
 .glowing-btn {
-    color: var(--glow-color);
-    border: 0.15em solid var(--glow-color);
-    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
-    -moz-box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
-    box-shadow: inset 0px 0px 0.5em 0px var(--glow-color), 0px 0px 0.5em 0px var(--glow-color);
+    color: var(--theme);
+    border: 0.15em solid var(--theme);
+    -webkit-box-shadow: inset 0px 0px 0.5em 0px var(--theme), 0px 0px 0.5em 0px var(--theme);
+    -moz-box-shadow: inset 0px 0px 0.5em 0px var(--theme), 0px 0px 0.5em 0px var(--theme);
+    box-shadow: inset 0px 0px 0.5em 0px var(--theme), 0px 0px 0.5em 0px var(--theme);
     position: relative;
     cursor: pointer;
     padding: 0.35em 1em;
@@ -27,9 +26,9 @@
 }
 
 .glowing-txt {
-    -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-    -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--glow-color);
+    -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--theme);
+    -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--theme);
+    text-shadow: 0px 0px 9px var(--theme-2);
     float: left;
     font-weight: bold;
     animation: text-flicker 3s linear infinite;
@@ -45,13 +44,12 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    backdrop-filter: blur(20px);
     left: 0;
     right: 0;
     opacity: 0.7;
     filter: blur(1em);
     transform: translateY(120%) rotateX(95deg) scale(1, 0.35);
-    background: var(--glow-color);
+    background: var(--theme);
     pointer-events: none;
 }
 
@@ -59,14 +57,13 @@
     content: "";
     position: absolute;
     top: 0;
-    backdrop-filter: blur(20px);
     left: 0;
     right: 0;
     bottom: 0;
     opacity: 0;
     z-index: -1;
-    background-color: var(--glow-color);
-    box-shadow: 0 0 2em 0.2em var(--glow-color);
+    background-color: var(--theme);
+    box-shadow: 0 0 2em 0.2em var(--theme);
     transition: opacity 100ms linear;
 }
 
@@ -81,7 +78,7 @@
 .glowing-txt-2 {
     -webkit-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--theme-2);
     -moz-text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--theme-2);
-    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em var(--theme-2);
+    text-shadow: 0px 0px 8px var(--theme-2);
 }
 
 .glowing-btn-2::before {
@@ -211,5 +208,30 @@
 @media only screen and (max-width: 600px) {
     .glowing-btn {
         font-size: 1em;
+    }
+}
+
+.rotating-square {
+    width: 10px;
+    height: 10px;
+    border: solid 1px var(--theme);
+    animation: rotating-square 4s infinite linear;
+    transition: ease 0.5s all;
+}
+
+.service {
+    transition: ease 0.5s all;
+}
+
+.service:hover {
+    transform: translate(0px, -10px)
+}
+
+@keyframes rotating-square {
+    from {
+        transform: rotate(360deg)
+    }
+    to {
+        transform: rotate(0deg)
     }
 }

@@ -1,7 +1,7 @@
 
-import ShinyText from '../../components/ShinyText'
-import BetweenScroll from "../../components/BetweenScroll";
-import Bubbles from "../../components/Bubbles"
+import ShinyText from '../../components/open source/ShinyText'
+import BetweenScroll from "../../components/mine/BetweenScroll";
+import Bubbles from "../../components/mine/Bubbles"
 
 
 export default function AboutMe() {

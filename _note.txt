@@ -1,0 +1,24 @@
+
+Todo
+  Done:
+    adjust font sizing first for phone then pc
+    fix colors make them variables
+    remove excesse borders
+
+  Undone:
+    test different themes
+    update the links and stuff for stuff, add js for all
+    services
+    add bubbles and remove the light rays
+    finalize contact me now butyton on about me section
+    think of weather any  part else we need, like services, faq, and what will happen in the next version of the website.
+    update texts. 
+    make it online and final.
+
+
+Next version
+  advanced work sample
+  detail page work sample
+  resume download
+  faq
+  etc(read chatgpt chat about portfolio)

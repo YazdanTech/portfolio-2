@@ -1,7 +1,7 @@
 /* Main rotating container */
 
 .cta-container {
-    animation: rotate 4s linear infinite;
+    animation: rotate 8s linear infinite;
     display: flex;
     background-color: black;
     box-shadow: 0px 0px 50px var(--theme-2);
@@ -29,7 +29,7 @@
 }
 
 .cta-container-2 {
-    animation: rotate-reverse 2s linear infinite;
+    animation: rotate-reverse 4s linear infinite;
     transition: ease-in-out 1s all;
     display: flex;
     justify-content: center;
@@ -39,7 +39,7 @@
 }
 
 .cta-content {
-    animation: rotate 4s linear infinite;
+    animation: rotate 8s linear infinite;
     pointer-events: none;
 }
 

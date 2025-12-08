@@ -5,8 +5,11 @@ import Experience from "./index/Experience";
 import AboutMe from "./index/AboutMe";
 import Footer from "./index/Footer";
 import ContactMe from "./index/ContactMe";
+import Services from "./index/Services";
 
-import LightRays from '../components/LightRays';
+import LightRays from '../components/open source/LightRays';
+
+
 
 export default function Home() {
   return (
@@ -17,7 +20,7 @@ export default function Home() {
       <div className="fixed inset-0 z-30 w-full">
         <LightRays
           raysOrigin="top"
-          raysColor="var(--theme)"
+          raysColor='#32174D'
           raysSpeed={0.5}
           lightSpread={5}
           rayLength={1.2}
@@ -33,6 +36,7 @@ export default function Home() {
       <Techs />
       <Experience />
       <AboutMe />
+      <Services />
       <ContactMe />
       <Footer />
     </div>
