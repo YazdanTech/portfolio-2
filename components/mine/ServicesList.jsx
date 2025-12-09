@@ -6,7 +6,7 @@ export default function ServiceList({ services, onRequestService, onShowExample 
   return (
     <div className="flex gap-8 flex-wrap p-5 bg-transparent">
       {services.map((item, index) => (
-        <div className="z-100 backdrop-blur-[100px] service box-border flex flex-col border border-(--theme) p-5 lg:w-[31%] shadow-(--shadow-div) hover:shadow-(--shadow-div-hover) " key={index}>
+        <div className="z-100 service box-border flex flex-col border border-(--theme) p-5 lg:w-[31%] shadow-(--shadow-2) hover:shadow-(--shadow-div-hover) " key={index}>
           <h2 className="text-2xl mb-10">{item.title}</h2>
           <h4 className="text-xl mb-2 mt-5">Description:</h4>
           <p className="pl-5 font-thin">{item.description}</p>
