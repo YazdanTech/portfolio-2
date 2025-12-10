@@ -42,16 +42,33 @@ export default function ContactTabs({ initialMessage = "" }) {
     window.open(url, "_blank");
   }
 
-  function sendEmail() {
-    if (!validate()) return;
-    const subject = `Contact from ${name}`;
-    const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
-    const url =
-      `mailto:${encodeURIComponent(RECEIVER_EMAIL)}` +
-      `?subject=${encodeURIComponent(subject)}` +
-      `&body=${encodeURIComponent(body)}`;
-    window.open(url, "_self");
+async function sendEmail() {
+  if (!validate()) return;
+
+  setIsSending(true);
+  setError("");
+
+  try {
+    const res = await fetch("/api/send-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to send email");
+    }
+
+    alert("Email sent successfully!");
+    setMessage("");
+  } catch (err) {
+    setError("Failed to send email. Please try again.");
+  } finally {
+    setIsSending(false);
   }
+}
 
   return (
     <div className="flex justify-center" id="contact">
