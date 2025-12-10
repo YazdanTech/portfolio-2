@@ -2,10 +2,10 @@
 import ShinyText from '../../components/open source/ShinyText'
 import BetweenScroll from "../../components/mine/BetweenScroll";
 import Bubbles from "../../components/mine/Bubbles"
-import Tabs from "../../components/mine/Tabs"
+import ContactTabs from "../../components/mine/ContactTabs"
 
 
-export default function AboutMe() {
+export default function ContactMe() {
   return (
     <div>
       <div className="relative w-full flex justify-center">
@@ -25,7 +25,7 @@ export default function AboutMe() {
             />
           </div>
 
-          <Tabs />
+          <ContactTabs />
 
         </div>
       </div>

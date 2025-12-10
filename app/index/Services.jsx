@@ -1,144 +1,96 @@
 'use client'
 
-import { useState, useRef } from "react";
 import ServiceList from "../../components/mine/ServicesList";
 import BetweenScroll from "../../components/mine/BetweenScroll";
 import Bubbles from "../../components/mine/Bubbles";
+import { setPendingPrefill } from "@/utils/prefill";
 
-export default function Services({
-  setActiveContactTab,   // you already have these setters
-  setWaMessage,
-  setEmMessage
-}) {
-  const contactSectionRef = useRef(null);
+export default function Services() {
 
-  const [pendingPrefill, setPendingPrefill] = useState("");
-  const [chooseMethod, setChooseMethod] = useState(false);
-
-  // --- Example handler ---
+  // Scroll to example section
   function handleShowExample(id) {
     if (!id) return;
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }
+function handleRequestService(prefillText) {
+  const contact = document.getElementById("contact");
+  if (contact) contact.scrollIntoView({ behavior: "smooth" });
 
-  // --- When user clicks "I want this service" ---
-  function handleRequestService(prefillText) {
-    setPendingPrefill(prefillText);
-    setChooseMethod(true);
-  }
-
-  // --- On choosing WhatsApp or Email ---
-  function confirmMethod(method) {
-    // Scroll to contact section
-    if (contactSectionRef.current) {
-      contactSectionRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-
-    // Fill message in correct tab
-    if (method === "wa") {
-      setActiveContactTab("1"); 
-      setWaMessage(pendingPrefill);
-    } else {
-      setActiveContactTab("2");
-      setEmMessage(pendingPrefill);
-    }
-
-    setChooseMethod(false);
-    setPendingPrefill("");
-  }
-
-  // --- Service data ---
+  // Wait for the DOM to actually render
+  setTimeout(() => {
+    const msg = document.getElementById("main_message");
+    if (msg) msg.value = prefillText;
+  }, 300);
+}
+  // --- FINAL CLEAN SERVICES — NO BLOAT ---
   const servicesData = [
-    {
-      title: "1. Full Website (Frontend + Backend)",
-      description: "Build a production-ready web app: frontend, backend, auth, deployment.",
-      deliverables: [
-        "Routing & responsive UI",
-        "REST/GraphQL API",
-        "Deployment + monitoring"
-      ],
-      exampleId: "example-fullstack",
-      prefillMessage: "Hi, I am interested in a full website (frontend + backend). Please give me details."
-    },
-    {
-      title: "2. Backend / API Design",
-      description: "Robust server architecture, endpoints, auth, and DB design.",
-      deliverables: [
-        "API spec",
-        "Database schema",
-        "Tests & docs"
-      ],
-      exampleId: "example-backend",
-      prefillMessage: "Hi, I want backend/API design. I need details about structure and pricing."
-    },
-    {
-      title: "3. Payments & Integrations",
-      description: "Stripe/PayPal, subscriptions, webhooks, invoicing flows.",
-      deliverables: [
-        "Payment flow",
-        "Fraud mitigation",
-        "Integration docs"
-      ],
-      exampleId: "example-payments",
-      prefillMessage: "I want payment integration (Stripe/PayPal). Please explain next steps."
-    },
-    {
-      title: "4. Redesign / UI Refresh",
-      description: "Polished UI with improved conversion and accessibility.",
-      deliverables: [
-        "Mockups",
-        "Responsive HTML/CSS",
-        "Rollout plan"
-      ],
-      exampleId: "example-redesign",
-      prefillMessage: "I want a UI redesign. Tell me the process and requirements."
-    },
-    {
-      title: "5. Animations, 3D & Interactive",
-      description: "Animations, Lottie, WebGL/three.js components.",
-      deliverables: [
-        "Interactive demo",
-        "Optimized assets",
-        "Mobile fallback"
-      ],
-      exampleId: "example-3d",
-      prefillMessage: "I’m interested in animations/3D. Please give details."
-    },
-    {
-      title: "6. Hosting, Domain & Deployment",
-      description: "DNS, SSL, CI/CD; migration to Vercel / DO.",
-      deliverables: [
-        "DNS config",
-        "Automated deploys",
-        "Rollback plan"
-      ],
-      exampleId: "example-hosting",
-      prefillMessage: "I want hosting/domain/deployment help. Share steps."
-    },
-    {
-      title: "7. Performance, Security & Maintenance",
-      description: "Audits, speed tuning, security patches.",
-      deliverables: [
-        "Lighthouse report",
-        "Caching strategy",
-        "Monthly checks"
-      ],
-      exampleId: "example-maintenance",
-      prefillMessage: "Hi, I'm interested in performance/security maintenance."
-    },
-    {
-      title: "Discovery / Project Scoping",
-      description: "Clear requirements, timeline, and estimate.",
-      deliverables: [
-        "Scope document",
-        "Milestone plan",
-        "Quote or estimate"
-      ],
-      exampleId: "example-discovery",
-      prefillMessage: "I want discovery/scoping for my project."
-    }
-  ];
+  {
+    title: "Full Website (Frontend + Backend)",
+    description: "A complete production-grade website built with a modern UI, secure backend, database, authentication, and optimized deployment.",
+    deliverables: [
+      "Responsive UI & components",
+      "API + database architecture",
+      "Production deployment & monitoring"
+    ],
+    exampleId: "example-fullstack",
+    prefillMessage:
+      "Hi, I’m interested in a full website (frontend + backend). I want to understand your workflow, the technologies you use, the timeline, and what you need from me to begin. Please explain the process in detail."
+  },
+
+  {
+    title: "Backend / API Development",
+    description: "Clean, scalable backend development with structured routing, authentication, and reliable database models.",
+    deliverables: [
+      "API endpoints & controllers",
+      "Database schema design",
+      "Documentation & testing"
+    ],
+    exampleId: "example-backend",
+    prefillMessage:
+      "Hi, I want backend/API development. Please share the approach you follow, how the API will be designed, what tools you use, and what information you need from me to start."
+  },
+
+  {
+    title: "Payments & Integrations",
+    description: "Secure integration of Stripe, PayPal, subscriptions, webhooks, and automated billing flows.",
+    deliverables: [
+      "Payment flow setup",
+      "Integration & security",
+      "Testing & verification"
+    ],
+    exampleId: "example-payments",
+    prefillMessage:
+      "Hi, I’m interested in payment integration (Stripe/PayPal). Please explain the setup process, requirements, security considerations, and how we will test everything."
+  },
+
+  {
+    title: "Website Redesign",
+    description: "A modern, polished redesign with improved layout, visuals, usability, and mobile responsiveness.",
+    deliverables: [
+      "Updated UI mockup",
+      "Responsive rebuilt pages",
+      "Migration & refinement"
+    ],
+    exampleId: "example-redesign",
+    prefillMessage:
+      "Hi, I want a website redesign. Tell me how you approach the redesign process, what information you need from me, and the steps involved from mockup to final delivery."
+  },
+
+  {
+    title: "Hosting, Domain & Deployment",
+    description: "Full setup of domain, DNS, SSL, server configuration, and clean automated deployment.",
+    deliverables: [
+      "Domain + DNS setup",
+      "Production deployment",
+      "CI/CD configuration"
+    ],
+    exampleId: "example-hosting",
+    prefillMessage:
+      "Hi, I need hosting, domain, and deployment setup. Please explain how you configure the environment, what platforms you use, and what access or details you need from me."
+  }
+];
+
 
   return (
     <div>
@@ -157,9 +109,6 @@ export default function Services({
             />
 
           </section>
-
-          {/* Contact section reference */}
-          <div id="contact" ref={contactSectionRef} />
         </div>
 
         <BetweenScroll />
@@ -167,17 +116,6 @@ export default function Services({
           <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
         </div>
       </div>
-
-      {/* Method choice modal (unstyled) */}
-      {chooseMethod && (
-        <div>
-          <div>
-            <p>How do you want to contact?</p>
-            <button type="button" onClick={() => confirmMethod("wa")}>WhatsApp</button>
-            <button type="button" onClick={() => confirmMethod("email")}>Email</button>
-          </div>
-        </div>
-      )}
     </div>
   );
 }
