@@ -1,3 +1,4 @@
+import { useOverlay } from '../../components/mine/OverlayProvider';
 
 import ShinyText from '../../components/open source/ShinyText'
 import BetweenScroll from "../../components/mine/BetweenScroll";
@@ -5,6 +6,16 @@ import Bubbles from "../../components/mine/Bubbles"
 
 
 export default function AboutMe() {
+  
+  const { showOverlay } = useOverlay();
+  
+  function goToContact() {
+    showOverlay({
+      text: 'Let’s talk about your project',
+      scrollTo: 'contact'
+    });
+  }
+
   return (
     <div>
       <div className="relative w-full flex justify-center">
@@ -59,20 +70,18 @@ export default function AboutMe() {
             </div>
           </div>
 
-          <div className="flex justify-center my-10">
-            <div className="cta-container border h-50 w-50 flex justify-center items-center">
-              <div className="cta-container-2 h-50 w-50">
-                <p className="cta-content text-2xl">Contact Me Now</p>
-              </div>
+            <div className="flex p-5 w-full justify-center gap-5 gap-y-15 mt-10 flex-wrap">
+              <button className="glowing-btn" onClick={goToContact}>
+                <span onClick={goToContact} className="glowing-txt">CO<span className="faulty-letter">NTA</span>CT ME</span>
+              </button>
             </div>
-          </div>
 
         </div>
       </div>
 
         <BetweenScroll />
         <div className="between-section">
-          <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
+          <h1 className="text-7xl">Built carefully, delivered confidently.</h1>
         </div>
     
     </div>

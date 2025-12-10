@@ -1,7 +1,49 @@
 import ShinyText from '../../components/open source/ShinyText';
 import CopyButton from "../../components/mine/CopyButton";
+import { useOverlay } from '../../components/mine/OverlayProvider';
 
 export default function Footer() {
+
+  const { showOverlay } = useOverlay();
+
+    
+  function goToHome() {
+    showOverlay({
+      text: 'Just my name, and what i do.',
+      scrollTo: 'home'
+    });
+  }
+
+  
+  function goToAboutMe() {
+    showOverlay({
+      text: 'Who am i? i\'ve been asking the same question...',
+      scrollTo: 'aboue-me'
+    });
+  }
+
+  
+  function goToContact() {
+    showOverlay({
+      text: 'Tell me. let me guide you further',
+      scrollTo: 'contact'
+    });
+  }
+  
+  function goToTechnologies() {
+    showOverlay({
+      text: 'Tip: hold the image with your finger and move around.',
+      scrollTo: 'technologies'
+    });
+  }
+
+  function goToSamples() {
+    showOverlay({
+      text: 'This is a fraction of my true potential.',
+      scrollTo: 'technologies'
+    });
+  }
+  
   return (
     <div>
       <div className="relative w-full flex justify-center">
@@ -38,32 +80,32 @@ export default function Footer() {
               <div className="flex-col gap-2 flex text-left lg:flex-1 lg:w-[32%] justify-start">
                 <div className="text-xlpl-3 flex justify-start items-center link-container">
                   <div className="bg-(--theme-2) h-3 w-3 square mr-2 blur-xs"></div>
-                  <div className="link">
-                    <a href="#" className='text-theme'>Home</a>
+                  <div className="link cursor-pointer">
+                    <a onClick={goToHome} className='text-theme'>Home</a>
                   </div>
                 </div>
                 <div className="text-xlpl-3 flex justify-start items-center link-container">
                   <div className="bg-(--theme-2) h-3 w-3 square mr-2 blur-xs"></div>
-                  <div className="link">
-                    <a href="#" className='text-theme'>Work Samples</a>
+                  <div className="link cursor-pointer">
+                    <a onClick={goToSamples} className='text-theme'>Work Samples</a>
                   </div>
                 </div>
                 <div className="text-xlpl-3 flex justify-start items-center link-container">
                   <div className="bg-(--theme-2) h-3 w-3 square mr-2 blur-xs"></div>
-                  <div className="link">
-                    <a href="#" className='text-theme'>Technologies</a>
+                  <div className="link cursor-pointer">
+                    <a onClick={goToTechnologies} className='text-theme'>Technologies</a>
                   </div>
                 </div>
                 <div className="text-xlpl-3 flex justify-start items-center link-container">
                   <div className="bg-(--theme-2) h-3 w-3 square mr-2 blur-xs"></div>
-                  <div className="link">
-                    <a href="#" className='text-theme'>Contact Me</a>
+                  <div className="link cursor-pointer">
+                    <a onClick={goToContact} className='text-theme'>Contact Me</a>
                   </div>
                 </div>
                 <div className="text-xlpl-3 flex justify-start items-center link-container">
                   <div className="bg-(--theme-2) h-3 w-3 square mr-2 blur-xs"></div>
-                  <div className="link">
-                    <a href="#" className='text-theme'>About Me</a>
+                  <div className="link cursor-pointer">
+                    <a onClick={goToAboutMe} className='text-theme'>About Me</a>
                   </div>
                 </div>
               </div>

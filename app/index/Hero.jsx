@@ -1,16 +1,34 @@
 
 'use client'
 import ShinyText from '../../components/open source/ShinyText';
-import LightRays from '../../components/open source/LightRays';
+import { useOverlay } from '../../components/mine/OverlayProvider';
 import ScrambledText from '../../components/open source/ScrambledText';
 import BetweenScroll from '../../components/mine/BetweenScroll';
 
 
 
 export default function Hero() {
+
+  const { showOverlay } = useOverlay();
+
+  function goToContact() {
+    showOverlay({
+      text: 'Let’s talk about your project.',
+      scrollTo: 'contact'
+    });
+  }
+
+  function goToExperience() {
+    showOverlay({
+      text: 'Some of the projects i\'ve chosen to show.',
+      scrollTo: 'experience'
+    });
+  }
+
+
   return (
     <div>
-      <div className="relative w-full flex justify-center">
+      <div className="relative w-full flex justify-center" id='home'>
 
         <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
         </div>
@@ -46,10 +64,10 @@ export default function Hero() {
             </div>
 
             <div className="flex p-5 w-full justify-center gap-5 gap-y-15 mt-10 flex-wrap">
-              <button className="glowing-btn">
+              <button className="glowing-btn" onClick={goToContact}>
                 <span className="glowing-txt">CO<span className="faulty-letter">NTA</span>CT ME</span>
               </button>
-              <button className="glowing-btn glowing-btn-2">
+              <button className="glowing-btn glowing-btn-2" onClick={goToExperience}>
                 <span className="glowing-txt glowing-txt-2">WORK<span className="faulty-letter"> S</span>AMPLES</span>
               </button>
             </div>
@@ -59,7 +77,7 @@ export default function Hero() {
 
       <BetweenScroll />
       <div className="between-section">
-        <h1 className="text-7xl">I Build Your Dream Website..</h1>
+        <h1 className="text-7xl">Your vision, executed with intention.</h1>
       </div>
     </div>
   );

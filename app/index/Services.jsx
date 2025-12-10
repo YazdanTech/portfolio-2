@@ -107,10 +107,11 @@ const servicesData = [
           </section>
         </div>
 
-        <BetweenScroll />
-        <div className="between-section">
-          <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
-        </div>
+        
+      </div>
+      <BetweenScroll />
+      <div className="between-section">
+        <h1 className="text-7xl">Clarity, structure, and lasting quality.</h1>
       </div>
     </div>
   );

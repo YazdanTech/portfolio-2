@@ -13,7 +13,7 @@ export default function Experience() {
 
         <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow) pb-20">
 
-          <div className="text-5xl lg:text-8xl md:text-7xl font-thin my-30 text-center ">
+          <div id='experience' className="text-5xl lg:text-8xl md:text-7xl font-thin my-30 text-center">
             <ShinyText 
               text="Expereince"
               disabled={false}
@@ -39,7 +39,7 @@ export default function Experience() {
 
         <BetweenScroll />
         <div className="between-section">
-          <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
+          <h1 className="text-7xl">From concept to launch, handled end-to-end.</h1>
         </div>
     
     </div>

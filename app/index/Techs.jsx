@@ -84,7 +84,7 @@ export default function Techs() {
             />
           </div>
 
-      <div style={{ height: '600px', position: 'relative' }}>
+      <div style={{ height: '600px', position: 'relative' }} id='technologies'>
         <InfiniteMenu items={items} />
       </div>
 
@@ -93,7 +93,7 @@ export default function Techs() {
 
         <BetweenScroll />
         <div className="between-section">
-          <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
+          <h1 className="text-7xl">A professional partner, not just a developer</h1>
         </div>
     
     </div>

@@ -26,7 +26,7 @@ export default function ContactMe({ initialMessage = "" }) {
 
       <BetweenScroll />
       <div className="between-section">
-        <h1 className="text-7xl">Taste Digital Luxury With Me..</h1>
+        <h1 className="text-7xl">Ready when you are to begin.</h1>
       </div>
     </div>
   );
