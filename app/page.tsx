@@ -1,3 +1,7 @@
+// page.jsx
+'use client';
+
+import { useState } from "react";
 import Hero from "./index/Hero";
 import Techs from "./index/Techs";
 import TopNav from "./index/TopNav";
@@ -9,14 +13,11 @@ import Services from "./index/Services";
 
 import LightRays from '../components/open source/LightRays';
 
-
-
 export default function Home() {
+  const [contactMessage, setContactMessage] = useState("");
+
   return (
     <div className="flex flex-col">
-
-      {/* BACKGROUND — stays fixed, full screen, behind everything */}
-
       <div className="fixed inset-0 z-30 w-full">
         <LightRays
           raysOrigin="top"
@@ -30,14 +31,16 @@ export default function Home() {
           distortion={0.05}
         />
       </div>
-      
+
       <TopNav />
       <Hero />
       <Techs />
       <Experience />
       <AboutMe />
-      <Services />
-      <ContactMe />
+      {/* Pass setter so Services can set the contact message */}
+      <Services setContactMessage={setContactMessage} />
+      {/* Pass the current message down to ContactMe */}
+      <ContactMe initialMessage={contactMessage} />
       <Footer />
     </div>
   );

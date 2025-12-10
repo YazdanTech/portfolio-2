@@ -1,30 +1,31 @@
+// Services (modify signature to accept props)
 'use client'
 
-import ServiceList from "../../components/mine/ServicesList";
+import ServicesList from "../../components/mine/ServicesList";
 import BetweenScroll from "../../components/mine/BetweenScroll";
 import Bubbles from "../../components/mine/Bubbles";
-import { setPendingPrefill } from "@/utils/prefill";
 
-export default function Services() {
+export default function Services({ setContactMessage }) {
+  // remove local message state — we use the parent's setter
+  // const [message, setMessage] = useState("");
 
-  // Scroll to example section
   function handleShowExample(id) {
     if (!id) return;
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   }
-function handleRequestService(prefillText) {
-  const contact = document.getElementById("contact");
-  if (contact) contact.scrollIntoView({ behavior: "smooth" });
 
-  // Wait for the DOM to actually render
-  setTimeout(() => {
-    const msg = document.getElementById("main_message");
-    if (msg) msg.value = prefillText;
-  }, 300);
-}
-  // --- FINAL CLEAN SERVICES — NO BLOAT ---
-  const servicesData = [
+  function handleRequestService(prefillText) {
+    // update parent state first
+    if (typeof setContactMessage === "function") {
+      setContactMessage(prefillText);
+    }
+
+    // then scroll to the contact form
+    const contact = document.getElementById("contact");
+    if (contact) contact.scrollIntoView({ behavior: "smooth" });
+  }
+const servicesData = [
   {
     title: "Full Website (Frontend + Backend)",
     description: "A complete production-grade website built with a modern UI, secure backend, database, authentication, and optimized deployment.",
@@ -35,7 +36,7 @@ function handleRequestService(prefillText) {
     ],
     exampleId: "example-fullstack",
     prefillMessage:
-      "Hi, I’m interested in a full website (frontend + backend). I want to understand your workflow, the technologies you use, the timeline, and what you need from me to begin. Please explain the process in detail."
+      "I’m interested in a full website (frontend + backend). I want to understand your workflow, the technologies you use, the timeline, and what you need from me to begin. Please explain the process in detail."
   },
 
   {
@@ -48,7 +49,7 @@ function handleRequestService(prefillText) {
     ],
     exampleId: "example-backend",
     prefillMessage:
-      "Hi, I want backend/API development. Please share the approach you follow, how the API will be designed, what tools you use, and what information you need from me to start."
+      "I want backend/API development. Please share the approach you follow, how the API will be designed, what tools you use, and what information you need from me to start."
   },
 
   {
@@ -61,7 +62,7 @@ function handleRequestService(prefillText) {
     ],
     exampleId: "example-payments",
     prefillMessage:
-      "Hi, I’m interested in payment integration (Stripe/PayPal). Please explain the setup process, requirements, security considerations, and how we will test everything."
+      "I’m interested in payment integration (Stripe/PayPal). Please explain the setup process, requirements, security considerations, and how we will test everything."
   },
 
   {
@@ -74,7 +75,7 @@ function handleRequestService(prefillText) {
     ],
     exampleId: "example-redesign",
     prefillMessage:
-      "Hi, I want a website redesign. Tell me how you approach the redesign process, what information you need from me, and the steps involved from mockup to final delivery."
+      "I want a website redesign. Tell me how you approach the redesign process, what information you need from me, and the steps involved from mockup to final delivery."
   },
 
   {
@@ -87,27 +88,22 @@ function handleRequestService(prefillText) {
     ],
     exampleId: "example-hosting",
     prefillMessage:
-      "Hi, I need hosting, domain, and deployment setup. Please explain how you configure the environment, what platforms you use, and what access or details you need from me."
+      "I need hosting, domain, and deployment setup. Please explain how you configure the environment, what platforms you use, and what access or details you need from me."
   }
 ];
-
 
   return (
     <div>
       <div className="relative w-full flex justify-center">
         <div className="absolute z-30 top-0 right-0 bottom-0 left-0 bg-(--black)"></div>
-
         <Bubbles />
-
         <div className="min-h-max w-full relative border-b z-50 border-b-(--theme-2) border-t border-t-(--theme-2) shadow-(--div-shadow) pb-20 bg-transparent">
           <section id="services" className="py-16">
-
-            <ServiceList
+            <ServicesList
               services={servicesData}
               onShowExample={handleShowExample}
-              onRequestService={handleRequestService}
+              onRequestService={(prefillText) => handleRequestService(prefillText)}
             />
-
           </section>
         </div>
 

@@ -1,16 +1,22 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { consumePendingPrefill } from "@/utils/prefill";
 
-export default function ContactTabs() {
+export default function ContactTabs({ initialMessage = "" }) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
   const [isSending, setIsSending] = useState(false);
 
-const RECEIVER_EMAIL = 'yazdanthedeveloper@email.com';
+  const RECEIVER_EMAIL = 'yazdanthedeveloper@email.com';
+
+  useEffect(() => {
+    // when parent passes a new initialMessage, update the textarea state
+    if (initialMessage && initialMessage !== message) {
+      setMessage(initialMessage);
+    }
+  }, [initialMessage]);
 
   function validate() {
     setError('');
@@ -28,8 +34,11 @@ const RECEIVER_EMAIL = 'yazdanthedeveloper@email.com';
 
   function sendWhatsApp() {
     if (!validate()) return;
+
+    const myNumber = "+989384272106";
     const body = `Hi, my name is ${name} (${email}).\n\n${message}`;
-    const url = "https://wa.me/?text=" + encodeURIComponent(body);
+    const url = `https://wa.me/${myNumber.replace(/\D/g, '')}?text=${encodeURIComponent(body)}`;
+
     window.open(url, "_blank");
   }
 
@@ -60,8 +69,14 @@ const RECEIVER_EMAIL = 'yazdanthedeveloper@email.com';
         </div>
 
         <div>
-          <label >Message</label>
-          <textarea id="main_message" value={message} onChange={(e) => setMessage(e.target.value)} />
+          <label>Message</label>
+          <textarea
+            type="text"
+            placeholder="Your message"
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
+            id="main_message"
+          />
         </div>
 
         {error && <div className="error-box">{error}</div>}

@@ -1,6 +1,6 @@
 // components/ServiceList.jsx
 
-export default function ServiceList({ services, onRequestService, onShowExample }) {
+export default function ServicesList({ services, onRequestService, onShowExample }) {
   if (!Array.isArray(services) || services.length === 0) return null;
 
   return (
