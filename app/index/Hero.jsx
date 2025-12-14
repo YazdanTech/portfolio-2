@@ -4,8 +4,7 @@ import ShinyText from '../../components/open source/ShinyText';
 import { useOverlay } from '../../components/mine/OverlayProvider';
 import ScrambledText from '../../components/open source/ScrambledText';
 import BetweenScroll from '../../components/mine/BetweenScroll';
-
-
+import Bubbles from "../../components/mine/Bubbles"
 
 export default function Hero() {
 
@@ -31,6 +30,10 @@ export default function Hero() {
       <div className="relative w-full flex justify-center" id='home'>
 
         <div className="absolute z-20 backdrop-blur-md top-0 right-0 bottom-0 left-0">
+        </div>
+        
+        <div className="md:display-block display-none">
+          <Bubbles />
         </div>
 
         {/* CONTENT — scrollable normally */}

@@ -21,14 +21,14 @@ export default function Home() {
       <div className="fixed top-0 bottom-0 left-0 right-0">
         <LightRays
           raysOrigin="top"
-          raysColor='#32174D'
+          raysColor='#636c77'
           raysSpeed={0.5}
-          lightSpread={5}
+          lightSpread={20}
           rayLength={1.2}
           followMouse={true}
           mouseInfluence={0.1}
           noiseAmount={0.1}
-          distortion={0.05}
+          distortion={0}
         />
       </div>
 
