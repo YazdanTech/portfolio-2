@@ -31,7 +31,7 @@ export default function Experience() {
               clickEffect={true}
               spotlightRadius={300}
               particleCount={12}
-              glowColor="0,104,73"
+              glowColor="50, 23, 77"
             />
 
         </div>

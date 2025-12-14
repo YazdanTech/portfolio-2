@@ -9,33 +9,40 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "255,255,255";
 const MOBILE_BREAKPOINT = 768;
 
+/**
+ * === NOTE ===
+ * cardData now uses `images` (comma-separated string) instead of a single `image`.
+ * Each item in the list can be an image file (jpg/png/webp) or a video file (mp4/webm).
+ * Example values: "hero.jpg, demo.mp4, screenshot-2.png"
+ */
+
 const cardData = [
   {
     color: 'transparent',
     title: 'SKY20',
     techs: 'Next.js, React, HTML, CSS',
-    image: 'wizard-computer.jpeg',
+    images: 'wizard-computer.jpeg, demo-1.mp4',
     description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
   },
   {
     color: 'transparent',
     title: 'Meysam Deris',
     techs: 'HTML, CSS, JS, Animations, Responsive, Django, CMS',
-    image: 'wizard-computer.jpeg',
+    images: 'wizard-computer.jpeg, demo-2.mp4, screenshot-1.png',
     description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
   },
   {
     color: 'transparent',
     title: 'SKY20',
     techs: 'Next.js',
-    image: 'wizard-computer.jpeg',
+    images: 'wizard-computer.jpeg, screenshot-2.png',
     description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
   },
   {
     color: 'transparent',
     title: 'SKY20',
     techs: 'Next.js',
-    image: 'wizard-computer.jpeg',
+    images: 'wizard-computer.jpeg',
     description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
   },
 ];
@@ -310,6 +317,242 @@ const ParticleCard = ({
     </div>
   );
 };
+/* Updated MediaCarousel with 0.5s cross-fade */
+function MediaCarousel({ mediaList = [] }) {
+  // mediaList: array of filenames (strings)
+  const [index, setIndex] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(null); // holds the previous slide during transition
+  const [transitioning, setTransitioning] = useState(false);
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+  const containerRef = useRef(null);
+
+  const FADE_MS = 500;
+
+  useEffect(() => {
+    // reset index if list changes
+    setIndex(0);
+    setPrevIndex(null);
+    setTransitioning(false);
+  }, [mediaList]);
+
+  const goToIndex = (newIndex) => {
+    if (!mediaList || mediaList.length <= 1) {
+      setIndex(newIndex);
+      return;
+    }
+    if (transitioning || newIndex === index) return;
+
+    // step 1: record previous and set new current
+    setPrevIndex(index);
+    setIndex(newIndex);
+
+    // step 2: in next frame, enable transitioning so CSS transitions run
+    requestAnimationFrame(() => {
+      // double RAF to ensure browser paints initial state
+      requestAnimationFrame(() => setTransitioning(true));
+    });
+
+    // step 3: cleanup after transition duration
+    setTimeout(() => {
+      setPrevIndex(null);
+      setTransitioning(false);
+    }, FADE_MS);
+  };
+
+  const prev = (e) => {
+    e?.stopPropagation?.();
+    if (!mediaList || mediaList.length === 0) return;
+    goToIndex((index - 1 + mediaList.length) % mediaList.length);
+  };
+
+  const next = (e) => {
+    e?.stopPropagation?.();
+    if (!mediaList || mediaList.length === 0) return;
+    goToIndex((index + 1) % mediaList.length);
+  };
+
+  const onTouchStart = (e) => {
+    touchStartX.current = e.touches?.[0]?.clientX || null;
+  };
+
+  const onTouchMove = (e) => {
+    touchEndX.current = e.touches?.[0]?.clientX || null;
+  };
+
+  const onTouchEnd = () => {
+    if (touchStartX.current == null || touchEndX.current == null) {
+      touchStartX.current = null;
+      touchEndX.current = null;
+      return;
+    }
+    const diff = touchStartX.current - touchEndX.current;
+    const threshold = 50;
+    if (diff > threshold) {
+      next();
+    } else if (diff < -threshold) {
+      prev();
+    }
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
+  if (!mediaList || mediaList.length === 0) return null;
+  const src = mediaList[index].trim();
+  const prevSrc = prevIndex != null ? mediaList[prevIndex].trim() : null;
+
+  // helper to detect video files
+  const isVideoFileLocal = (name = '') => {
+    const ext = name.split('.').pop()?.toLowerCase() || '';
+    return ['mp4', 'webm', 'ogv'].includes(ext);
+  };
+
+  // shared style for slides
+  const slideStyle = {
+    position: 'absolute',
+    inset: 0,
+    width: '100%',
+    height: '100%',
+    transition: `opacity ${FADE_MS}ms ease`,
+    willChange: 'opacity'
+  };
+
+  return (
+    <div
+      className="carousel-container relative w-full h-64"
+      ref={containerRef}
+      onTouchStart={onTouchStart}
+      onTouchMove={onTouchMove}
+      onTouchEnd={onTouchEnd}
+      onClick={(e) => e.stopPropagation()}
+    >
+      <div className="carousel-inner relative w-full h-64 overflow-hidden">
+        {/* Previous slide (render only during transition) */}
+        {prevSrc && (
+          <div
+            className="carousel-slide prev-slide"
+            style={{
+              ...slideStyle,
+              zIndex: 20,
+              opacity: transitioning ? 0 : 1 // start visible, then fade out
+            }}
+            aria-hidden="true"
+          >
+            {isVideoFileLocal(prevSrc) ? (
+              <video
+                key={prevSrc + '-prev'}
+                src={`/experience/${prevSrc}`}
+                controls={false}
+                muted
+                playsInline
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+              />
+            ) : (
+              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+                <Image
+                  src={`/experience/${prevSrc}`}
+                  alt=""
+                  fill
+                  className="object-cover rounded-2xl"
+                  priority={false}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Current slide */}
+        <div
+          className="carousel-slide current-slide"
+          style={{
+            ...slideStyle,
+            zIndex: 30,
+            opacity: transitioning ? 1 : prevIndex == null ? 1 : 0 // if no prev, show immediately; otherwise start hidden and fade in
+          }}
+        >
+          {isVideoFileLocal(src) ? (
+            <video
+              key={src + '-curr'}
+              src={`/experience/${src}`}
+              controls
+              playsInline
+              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+            />
+          ) : (
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <Image
+                src={`/experience/${src}`}
+                alt=""
+                fill
+                className="object-cover rounded-2xl"
+                priority={index === 0}
+              />
+            </div>
+          )}
+        </div>
+
+        {/* Navigation (no styles - you style them) */}
+        {mediaList.length > 1 && (
+          <>
+            <button
+              type="button"
+              aria-label="Previous"
+              onClick={prev}
+              style={{
+                position: 'absolute',
+                left: 10,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 40,
+                width: '40px',
+                height: '40px',
+                borderRadius: '360px',
+                margin: '0',
+                display: 'flex',
+                justifyContent: 'center',
+                boxShadow: '0px 0px 20px black',
+                alignItems: 'center',
+                background: 'transparent',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid var(--theme-2)',
+                cursor: 'pointer',
+              }}
+            >
+              ‹
+            </button>
+
+            <button
+              type="button"
+              aria-label="Next"
+              onClick={next}
+              style={{
+                position: 'absolute',
+                right: 10,
+                top: '50%',
+                transform: 'translateY(-50%)',
+                zIndex: 40,
+                width: '40px',
+                height: '40px',
+                borderRadius: '360px',
+                margin: '0',
+                display: 'flex',
+                justifyContent: 'center',
+                boxShadow: '0px 0px 20px black',
+                alignItems: 'center',
+                background: 'transparent',
+                backdropFilter: 'blur(10px)',
+                border: '1px solid var(--theme-2)',
+                cursor: 'pointer',
+              }}
+            >
+              ›
+            </button>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}/* -------------------- End MediaCarousel -------------------- */
 
 const GlobalSpotlight = ({
   gridRef,
@@ -641,6 +884,12 @@ const MagicBento = ({
               '--glow-radius': '200px'
             };
 
+            // prepare media array from comma-separated list
+            const mediaList = (card.images || '')
+              .split(',')
+              .map(s => s.trim())
+              .filter(Boolean);
+
             if (enableStars) {
               return (
                 <ParticleCard
@@ -656,12 +905,8 @@ const MagicBento = ({
                 >
                   <div className="flex-col align-center w-full bg-[#00000077] p-3 h-full">
                     <div className="relative w-full h-64 scale-103 transition-all ease-in-out duration-700 hover:shadow-[0px_0px_30px_var(--theme)]">
-                      <Image
-                        src={`/experience/${card.image}`}
-                        alt=""
-                        fill
-                        className="object-cover rounded-2xl shadow-2xl shadow-black"
-                      />
+                      {/* ====== REPLACED: single Image => MediaCarousel (supports images + videos) ====== */}
+                      <MediaCarousel mediaList={mediaList.length ? mediaList : ['wizard-computer.jpeg']} />
                     </div>
 
                     <div className="text-2xl text-5xl text-left my-2 text-(--theme)">

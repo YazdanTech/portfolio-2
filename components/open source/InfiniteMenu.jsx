@@ -972,9 +972,14 @@ export default function InfiniteMenu({ items = [] }) {
       ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
       
       /* DESKTOP */
-      left-[1.6em]
+      backdrop-blur-2xl
+      border border-black
+      left-[5%]
       top-1/2
       transform translate-x-[20%] -translate-y-1/2
+      p-3 rounded-xl
+
+      md:left-[5%]
 
       /* MOBILE: TITLE GOES TOP */
       max-sm:top-[10%]
@@ -1003,9 +1008,15 @@ export default function InfiniteMenu({ items = [] }) {
       ease-[cubic-bezier(0.25,0.1,0.25,1.0)]
       
       /* DESKTOP */
+      p-3 rounded-xl
+      backdrop-blur-2xl
+      border border-black
       top-1/2
-      right-[1%]
+      right-[5%]
       translate-x-[-90%] -translate-y-1/2
+
+      md:right-[-5%]
+
 
       /* MOBILE: DESCRIPTION GOES BOTTOM */
       max-sm:bottom-[5%]
@@ -1015,7 +1026,7 @@ export default function InfiniteMenu({ items = [] }) {
       max-sm:translate-x-[-50%]
       max-sm:-translate-y-0
       max-sm:max-w-[40ch]
-      max-sm:w-[30ch]
+      max-sm:w-[20ch]
       max-sm:text-center
 
       ${

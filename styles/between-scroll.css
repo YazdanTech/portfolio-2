@@ -1,118 +1,118 @@
 /* each between section occupies a viewport and only signals active state */
 
 .between-section {
-    position: relative;
-    height: 100vh;
-    pointer-events: none;
-    /* prevent accidental interactions */
+  position: relative;
+  height: 100vh;
+  pointer-events: none;
+  /* prevent accidental interactions */
 }
 
 
 /* single fixed text used by all sections (keeps same place on screen) */
 
 .between-section h1 {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-transform: uppercase;
-    font-weight: 100;
-    background: linear-gradient(45deg, white, var(--theme), var(--theme-2), white);
-    background-size: 300% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0;
-    transition: opacity 600ms cubic-bezier(.2, .9, .2, 1), transform 600ms cubic-bezier(.2, .9, .2, 1);
-    will-change: opacity, transform;
-    pointer-events: none;
-    z-index: 0;
-    /* above page content */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-transform: uppercase;
+  font-weight: 100;
+  background: linear-gradient(45deg, white, var(--theme), var(--theme-2), white);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transition: opacity 600ms cubic-bezier(.2, .9, .2, 1), transform 600ms cubic-bezier(.2, .9, .2, 1);
+  animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
+  will-change: opacity, transform;
+  pointer-events: none;
+  z-index: 0;
+  /* above page content */
 }
 
 
 /* active class — fades the text in and runs subtle breathe */
 
 .between-section.active h1 {
-    opacity: 0.6;
-    animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
+  opacity: 0.6;
+  animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
 }
 
 
 /* Create a global background layer behind everything */
 
 #background-layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -20;
-    /* very low so always behind */
-    pointer-events: none;
-    overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -20;
+  /* very low so always behind */
+  pointer-events: none;
+  overflow: hidden;
 }
 
 
 /* All between-sections now just act as triggers */
 
 .between-section {
-    position: relative;
-    height: 100vh;
-    z-index: -20;
-    background-color: black;
+  position: relative;
+  height: 100vh;
+  z-index: -20;
+  background-color: black;
 }
 
 
 /* Texts live inside the fixed background layer */
 
 #background-layer h1 {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: clamp(2rem, 6vw, 6rem);
-    font-weight: 100;
-    text-transform: uppercase;
-    text-shadow: 0px 0px 20px black;
-    filter: brightness(200%);
-    background: linear-gradient(45deg, white, var(--theme), var(--theme-2), white);
-    background-size: 300% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    opacity: 0;
-    transition: opacity 0.6s ease, transform 0.6s ease;
-    will-change: opacity, transform;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  font-weight: 100;
+  text-transform: capitalize;
+  text-shadow: 0px 0px 20px black;
+  filter: brightness(200%);
+  background: linear-gradient(45deg, white, var(--theme), var(--theme-2), white);
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  transition: 1s all ease;
+  will-change: opacity, transform;
 }
 
 
 /* breathing animation */
 
 @keyframes breath {
-    from {
-        letter-spacing: 0px;
-        transform: translate(-50%, -50%);
-    }
-    to {
-        letter-spacing: 1px;
-        transform: translate(-50%, -50%);
-    }
+  from {
+    transform: translate(-50%, -50%) scale(1.5);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 
 /* active state */
 
 #background-layer h1.active {
-    opacity: 0.6;
-    animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
+  opacity: 0.6;
+  animation: breath 6s ease-in-out alternate infinite, gradientFlow 6s ease-in-out alternate infinite;
 }
 
 @keyframes gradientFlow {
-    0% {
-        background-position: 0% 50%;
-    }
-    100% {
-        background-position: 100% 50%;
-    }
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
 }

@@ -60,15 +60,15 @@ export default function Hero() {
             <div className="luxury-line"></div>
 
             <div className="text-center mt-5">
-              <h3 className='gradient-text text-2xl'>I Bring Visualizations Into Web & Online</h3>
+              <h3 className='gradient-text text-2xl font-light mx-10'>I Bring Visualizations Into Web & Online</h3>
             </div>
 
             <div className="flex p-5 w-full justify-center gap-5 gap-y-15 mt-10 flex-wrap">
               <button className="glowing-btn" onClick={goToContact}>
                 <span className="glowing-txt">CO<span className="faulty-letter">NTA</span>CT ME</span>
               </button>
-              <button className="glowing-btn glowing-btn-2" onClick={goToExperience}>
-                <span className="glowing-txt glowing-txt-2">WORK<span className="faulty-letter"> S</span>AMPLES</span>
+              <button className="glowing-btn glowing-btn" onClick={goToExperience}>
+                <span className="glowing-txt glowing-txt">WORK<span className="faulty-letter"> S</span>AMPLES</span>
               </button>
             </div>
 

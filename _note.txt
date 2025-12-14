@@ -1,10 +1,10 @@
 
-  Undone:
-    add bubbles and remove the light rays ifbetter
-    update colors and shadows once more
-    general debug and fix and m and p 
-    update samples, weather viddeo or image, generate its content and make it working
-    make it online and final.
+Undone:
+  add bubbles and remove the light rays if better
+  update colors and shadows once more
+  general debug and fix and m and p 
+  update samples, weather viddeo or image, generate its content and make it working
+  make it online and final.
 
 
 Next version
