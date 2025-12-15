@@ -9,40 +9,21 @@ const DEFAULT_SPOTLIGHT_RADIUS = 300;
 const DEFAULT_GLOW_COLOR = "255,255,255";
 const MOBILE_BREAKPOINT = 768;
 
-/**
- * === NOTE ===
- * cardData now uses `images` (comma-separated string) instead of a single `image`.
- * Each item in the list can be an image file (jpg/png/webp) or a video file (mp4/webm).
- * Example values: "hero.jpg, demo.mp4, screenshot-2.png"
- */
-
 const cardData = [
   {
     color: 'transparent',
-    title: 'SKY20',
+    title: 'Progress',
     techs: 'Next.js, React, HTML, CSS',
-    images: 'wizard-computer.jpeg, demo-1.mp4',
+    folder: 'pp',
+    images: `1.png, 2.png, 3.png, 4.png, desktop (1).MOV, desktop (2).MOV, desktop (3).MOV, phone (1).MOV, phone (2).MOV, phone (3).MOV`,
     description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
   },
   {
     color: 'transparent',
     title: 'Meysam Deris',
     techs: 'HTML, CSS, JS, Animations, Responsive, Django, CMS',
-    images: 'wizard-computer.jpeg, demo-2.mp4, screenshot-1.png',
-    description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
-  },
-  {
-    color: 'transparent',
-    title: 'SKY20',
-    techs: 'Next.js',
-    images: 'wizard-computer.jpeg, screenshot-2.png',
-    description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
-  },
-  {
-    color: 'transparent',
-    title: 'SKY20',
-    techs: 'Next.js',
-    images: 'wizard-computer.jpeg',
+    folder: 'the1st',
+    images:  `1.png, 2.png, 3.png, phone (1).MOV, phone (2).MOV, phone (3).MOV, phone (4).MOV, v1.MOV, v2.MOV, v3.MOV, v4.MOV`,
     description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
   },
 ];
@@ -318,19 +299,17 @@ const ParticleCard = ({
   );
 };
 /* Updated MediaCarousel with 0.5s cross-fade */
-function MediaCarousel({ mediaList = [] }) {
+function MediaCarousel({ mediaList = [], folder, height = 420 }) {
   // mediaList: array of filenames (strings)
   const [index, setIndex] = useState(0);
-  const [prevIndex, setPrevIndex] = useState(null); // holds the previous slide during transition
+  const [prevIndex, setPrevIndex] = useState(null);
   const [transitioning, setTransitioning] = useState(false);
   const touchStartX = useRef(null);
   const touchEndX = useRef(null);
-  const containerRef = useRef(null);
 
   const FADE_MS = 500;
 
   useEffect(() => {
-    // reset index if list changes
     setIndex(0);
     setPrevIndex(null);
     setTransitioning(false);
@@ -343,17 +322,13 @@ function MediaCarousel({ mediaList = [] }) {
     }
     if (transitioning || newIndex === index) return;
 
-    // step 1: record previous and set new current
     setPrevIndex(index);
     setIndex(newIndex);
 
-    // step 2: in next frame, enable transitioning so CSS transitions run
     requestAnimationFrame(() => {
-      // double RAF to ensure browser paints initial state
       requestAnimationFrame(() => setTransitioning(true));
     });
 
-    // step 3: cleanup after transition duration
     setTimeout(() => {
       setPrevIndex(null);
       setTransitioning(false);
@@ -362,13 +337,11 @@ function MediaCarousel({ mediaList = [] }) {
 
   const prev = (e) => {
     e?.stopPropagation?.();
-    if (!mediaList || mediaList.length === 0) return;
     goToIndex((index - 1 + mediaList.length) % mediaList.length);
   };
 
   const next = (e) => {
     e?.stopPropagation?.();
-    if (!mediaList || mediaList.length === 0) return;
     goToIndex((index + 1) % mediaList.length);
   };
 
@@ -381,33 +354,22 @@ function MediaCarousel({ mediaList = [] }) {
   };
 
   const onTouchEnd = () => {
-    if (touchStartX.current == null || touchEndX.current == null) {
-      touchStartX.current = null;
-      touchEndX.current = null;
-      return;
-    }
+    if (touchStartX.current == null || touchEndX.current == null) return;
     const diff = touchStartX.current - touchEndX.current;
-    const threshold = 50;
-    if (diff > threshold) {
-      next();
-    } else if (diff < -threshold) {
-      prev();
-    }
+    if (diff > 50) next();
+    if (diff < -50) prev();
     touchStartX.current = null;
     touchEndX.current = null;
   };
 
-  if (!mediaList || mediaList.length === 0) return null;
+  if (!mediaList.length) return null;
+
   const src = mediaList[index].trim();
   const prevSrc = prevIndex != null ? mediaList[prevIndex].trim() : null;
 
-  // helper to detect video files
-  const isVideoFileLocal = (name = '') => {
-    const ext = name.split('.').pop()?.toLowerCase() || '';
-    return ['mp4', 'webm', 'ogv'].includes(ext);
-  };
+  const isVideo = (name = '') =>
+    ['mp4', 'webm', 'ogv', 'mov'].includes(name.split('.').pop()?.toLowerCase());
 
-  // shared style for slides
   const slideStyle = {
     position: 'absolute',
     inset: 0,
@@ -419,79 +381,71 @@ function MediaCarousel({ mediaList = [] }) {
 
   return (
     <div
-      className="carousel-container relative w-full h-64"
-      ref={containerRef}
+      className="carousel-container relative w-full"
+      style={{ height }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
       onTouchEnd={onTouchEnd}
       onClick={(e) => e.stopPropagation()}
     >
-      <div className="carousel-inner relative w-full h-64 overflow-hidden">
-        {/* Previous slide (render only during transition) */}
+      <div className="relative w-full h-full overflow-hidden">
+        {/* Previous slide */}
         {prevSrc && (
           <div
-            className="carousel-slide prev-slide"
             style={{
               ...slideStyle,
               zIndex: 20,
-              opacity: transitioning ? 0 : 1 // start visible, then fade out
+              opacity: transitioning ? 0 : 1
             }}
-            aria-hidden="true"
+            aria-hidden
           >
-            {isVideoFileLocal(prevSrc) ? (
+            {isVideo(prevSrc) ? (
               <video
-                key={prevSrc + '-prev'}
-                src={`/experience/${prevSrc}`}
-                controls={false}
+                src={`/experience/${folder}/${prevSrc}`}
                 muted
+                autoPlay
                 playsInline
-                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+                style={{ width: '100%', height: '100%', objectFit: 'contain' }}
               />
             ) : (
-              <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                <Image
-                  src={`/experience/${prevSrc}`}
-                  alt=""
-                  fill
-                  className="object-cover rounded-2xl"
-                  priority={false}
-                />
-              </div>
+              <Image
+                src={`/experience/${folder}/${prevSrc}`}
+                alt=""
+                fill
+                className="object-contain"
+              />
             )}
           </div>
         )}
 
         {/* Current slide */}
         <div
-          className="carousel-slide current-slide"
           style={{
             ...slideStyle,
             zIndex: 30,
-            opacity: transitioning ? 1 : prevIndex == null ? 1 : 0 // if no prev, show immediately; otherwise start hidden and fade in
+            opacity: transitioning ? 1 : prevIndex == null ? 1 : 0
           }}
         >
-          {isVideoFileLocal(src) ? (
+          {isVideo(src) ? (
             <video
-              key={src + '-curr'}
-              src={`/experience/${src}`}
+              src={`/experience/${folder}/${src}`}
               controls
               playsInline
-              style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }}
+              autoPlay
+              style={{ width: '100%', height: '100%', objectFit: 'contain' }}
             />
           ) : (
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-              <Image
-                src={`/experience/${src}`}
-                alt=""
-                fill
-                className="object-cover rounded-2xl"
-                priority={index === 0}
-              />
-            </div>
+            <Image
+              src={`/experience/${folder}/${src}`}
+              alt=""
+              fill
+              className="object-contain"
+              priority={index === 0}
+            />
           )}
         </div>
 
-        {/* Navigation (no styles - you style them) */}
+        {/* Navigation */}
         {mediaList.length > 1 && (
           <>
             <button
@@ -513,7 +467,7 @@ function MediaCarousel({ mediaList = [] }) {
                 boxShadow: '0px 0px 20px black',
                 alignItems: 'center',
                 background: 'transparent',
-                backdropFilter: 'blur(10px)',
+                backdropFilter: 'invert(50%)',
                 border: '1px solid var(--theme-2)',
                 cursor: 'pointer',
               }}
@@ -552,7 +506,8 @@ function MediaCarousel({ mediaList = [] }) {
       </div>
     </div>
   );
-}/* -------------------- End MediaCarousel -------------------- */
+}
+/* -------------------- End MediaCarousel -------------------- */
 
 const GlobalSpotlight = ({
   gridRef,
@@ -868,9 +823,9 @@ const MagicBento = ({
       )}
 
       <BentoCardGrid gridRef={gridRef}>
-        <div className="card-responsive flex flex-col md:flex-row md:flex-wrap md:justify-evenly w-full max-w-[1200px] gap-5">
+        <div className="card-responsive flex flex-col md:justify-evenly w-full max-w-[1200px] gap-5">
           {cardData.map((card, index) => {
-            const baseClassName = `card relative md:w-[32%] border border-solid font-light overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-1 ${
+            const baseClassName = ` card relative border border-solid font-light overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-1 ${
               enableBorderGlow ? 'card--border-glow' : ''
             }`;
 
@@ -903,51 +858,59 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="flex-col align-center w-full bg-[#00000077] p-3 h-full">
-                    <div className="relative w-full h-64 scale-103 transition-all ease-in-out duration-700 hover:shadow-[0px_0px_30px_var(--theme)]">
-                      {/* ====== REPLACED: single Image => MediaCarousel (supports images + videos) ====== */}
-                      <MediaCarousel mediaList={mediaList.length ? mediaList : ['wizard-computer.jpeg']} />
+                  <div className="flex flex-col align-center w-full bg-[#00000077] h-full gap-5 p-5 lg:flex-row">
+
+                    <div className="flex-1 flex flex-col justify-evenly">
+                      <div className="transition-all h-100 ease-in-out duration-700">
+                        <MediaCarousel
+                          mediaList={mediaList.length ? mediaList : ['wizard-computer.jpeg']}
+                          folder={card.folder}/>
+                      </div>
                     </div>
 
-                    <div className="text-2xl text-5xl text-left my-2 text-(--theme)">
-                      <h1>{card.title}</h1>
+                    <div className="flex-1 flex flex-col">
+
+                      <div className=" text-5xl text-left my-2 text-(--theme)">
+                        <h1>{card.title}</h1>
+                      </div>
+
+                      <div className="text-md text-left mt-8 sm:text-3xl">
+                        <h4>
+                          Technologies:
+                        </h4>
+                      </div>
+                      <div className="flex flex-wrap my-8 gap-2 justify-center">
+                        {card.techs.split(',').map((tech, index) => (
+                          <div
+                            key={index}
+                            className="px-2 py-1 rounded-md border-b rounded-bl-none rounded-br-none border-b-(--theme) text-sm bg-[#0f0f0f] text-white "
+                          >
+                            <h4>{tech.trim()}</h4>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="text-md text-left mt-8 sm:text-3xl">
+                        <h4>
+                          Description:
+                        </h4>
+                      </div>
+
+                      <div className="pl-2 text-[18px] my-5 font-thin text-left">
+                        {card.description}
+                      </div>
+
+                      <div className="flex justify-evenly my-3">
+                        <button className="neon-btn">
+                          Github
+                        </button>
+                        <button className="shiny-cta">
+                          <span>View Website</span>
+                        </button>
+
+                      </div>
                     </div>
 
-                    <div className="text-md text-left mt-8 sm:text-3xl">
-                      <h4>
-                        Technologies:
-                      </h4>
-                    </div>
-                    <div className="flex flex-wrap my-8 gap-2 justify-center">
-                      {card.techs.split(',').map((tech, index) => (
-                        <div
-                          key={index}
-                          className="px-2 py-1 rounded-md border-b rounded-bl-none rounded-br-none border-b-(--theme) text-sm bg-[#0f0f0f] text-white "
-                        >
-                          <h4>{tech.trim()}</h4>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="text-md text-left mt-8 sm:text-3xl">
-                      <h4>
-                        Description:
-                      </h4>
-                    </div>
-
-                    <div className="pl-2 text-[18px] my-5 font-thin text-left">
-                      {card.description}
-                    </div>
-
-                    <div className="flex justify-evenly my-3">
-                      <button className="neon-btn">
-                        Github
-                      </button>
-                      <button className="shiny-cta">
-                        <span>View Website</span>
-                      </button>
-
-                    </div>
                   </div>
 
                 </ParticleCard>
@@ -1070,7 +1033,7 @@ const MagicBento = ({
                 }}
               >
                 <div className="card__header flex justify-between gap-3 relative text-white">
-                  <span className="card__label text-base">{card.label}</span>
+                  <span className="card__label text-base mt-20">{card.label}</span>
                 </div>
                 <div className="card__content flex flex-col relative text-white">
                   <h3 className={`card__title font-normal text-base m-0 mb-1 ${textAutoHide ? 'text-clamp-1' : ''}`}>
