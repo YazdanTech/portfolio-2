@@ -1,10 +1,8 @@
 
 Undone:
-  add bubbles and remove the light rays if better
-  update colors and shadows once more
-  general debug and fix and m and p 
-  update samples, weather viddeo or image, generate its content and make it working
-  make it online and final.
+  general refix
+  link update
+  upload on best hosting
 
 
 Next version
@@ -12,4 +10,6 @@ Next version
   detail page work sample
   resume download
   faq
-  etc(read chatgpt chat about portfolio)
+  light/dark mode
+  random text showing up for headers and stuff, each time different
+  ai chatbot

@@ -113,40 +113,42 @@ export default function ContactTabs({ initialMessage = "" }) {
   return (
     <>
       <div className="flex justify-center" id="contact">
-        <div className="bg-black p-5 my-20 w-[90%] lg:w-[60%] shiny-border">
-          <h1 className="gradient-text text-4xl my-10">Contact Me</h1>
+        <div className="p-1 my-20 w-[90%] lg:w-[60%] shiny-border ">
+          <div className="backdrop-blur-[30px] p-4">
+            <h1 className="gradient-text text-4xl my-10">Share your vision, and let's see how I can help.</h1>
 
-          <div>
-            <label>Name</label>
-            <input placeholder="Yazdan Codes" value={name} onChange={(e) => setName(e.target.value)} />
-          </div>
+            <div>
+              <label>Name</label>
+              <input placeholder="Yazdan Codes" value={name} onChange={(e) => setName(e.target.value)} />
+            </div>
 
-          <div>
-            <label>Email</label>
-            <input placeholder="example@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
-          </div>
+            <div>
+              <label>Email</label>
+              <input placeholder="example@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
 
-          <div>
-            <label>Message</label>
-            <textarea
-              type="text"
-              placeholder="Your message"
-              value={message}
-              onChange={(e) => setMessage(e.target.value)}
-              id="main_message"
-            />
-          </div>
+            <div>
+              <label>Message</label>
+              <textarea
+                type="text"
+                placeholder="Your message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                id="main_message"
+              />
+            </div>
 
-          {error && <div className="error-box">{error}</div>}
+            {error && <div className="error-box">{error}</div>}
 
-          <div className="flex gap-5 my-10 justify-center flex-wrap">
-            <button type="button" id="btn" disabled={isSending} onClick={sendWhatsApp}>
-              Send via WhatsApp
-            </button>
+            <div className="flex gap-5 my-10 justify-center flex-wrap">
+              <button type="button" id="btn" disabled={isSending} onClick={sendWhatsApp}>
+                Send via WhatsApp
+              </button>
 
-            <button  className={`${isSending ? "sending": ''}`} type="button" id="btn" disabled={isSending} onClick={sendEmail}>
-              {isSending ? "Sending Email..": 'Send Email'}
-            </button>
+              <button className={`${isSending ? "sending": ''}`} type="button" id="btn" disabled={isSending} onClick={sendEmail}>
+                {isSending ? "Sending Email..": 'Send via Email'}
+              </button>
+            </div>
           </div>
         </div>
       </div>

@@ -37,7 +37,7 @@ export default function Hero() {
         </div>
 
         {/* CONTENT — scrollable normally */}
-        <div className="h-screen border-b z-40 border-b-(--theme) shadow-[var(--div-shadow)] w-full flex flex-col justify-center text-center">
+        <div className="h-screen border-b z-40 border-b-(--theme) shadow-(--bottom-div-shadow-1) w-full flex flex-col justify-center text-center">
             
             <div className="text-5xl lg:text-8xl md:text-7xl font-thin mb-3 ">
               <ShinyText 
@@ -63,7 +63,7 @@ export default function Hero() {
             <div className="luxury-line"></div>
 
             <div className="text-center mt-5">
-              <h3 className='gradient-text text-2xl font-light mx-10'>I Bring Visualizations Into Web & Online</h3>
+              <h3 className='gradient-text text-2xl font-light mx-10'>Your vision, engineered for the modern web.</h3>
             </div>
 
             <div className="flex p-5 w-full justify-center gap-5 gap-y-15 mt-10 flex-wrap">

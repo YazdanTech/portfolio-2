@@ -64,6 +64,7 @@ export function OverlayProvider({ children }) {
             inset: 0,
             backgroundColor: 'black',
             zIndex: 9999,
+            padding: '10px',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',

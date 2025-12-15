@@ -53,11 +53,11 @@ export default function Footer() {
 
         <div className="min-h-max w-full relative z-40 border-t border-t-black shadow-(--chaotic-shadow) pb-20 py-20">
 
-          <div className="flex flex-col m-5 pt-10 p-5 border gap-5 shadow-(--shadow-2)">
+          <div className="flex flex-col m-5 pt-10 p-5 border border-(--theme) gap-5 shadow-(--shadow-2) mb-10">
             <div className="flex flex-col lg:flex-row gap-20 ">
               <div className="text-4xl lg:text-4xl md:text-5xl font-thin text-left lg:w-[32%]">
                 <ShinyText 
-                  text="Overthinking wastes time. Figure things out by action."
+                  text="Simplicity is the ultimate sophistication."
                   disabled={false}
                   speed={3}
                 />
@@ -65,10 +65,10 @@ export default function Footer() {
 
               <div className="contact-me flex-col lg:flex-1 flex gap-2 lg:w-[32%]">
                 <div className="title text-2xl ">
-                  <h2>Let's have a conversation to see if I can guide you</h2>
+                  <h2>Send a brief and I’ll return a clear next-step proposal.</h2>
                 </div>
                 <div className="email lg:flex-row flex-col flex mt-5">
-                  <div className="p-2 border-l border-(--theme-2)">
+                  <div className="p-2 border-l-4 border-(--theme-2) mb-5">
                     <h4>
                       yazdanthedeveloper@gmail.com
                     </h4>
@@ -125,7 +125,7 @@ export default function Footer() {
               </div>
               </div>
               <div className="copy-right mt-20 lg:mt-10 text-center text-md opacity-50">
-                <span>© 2025 Targoon. All rights reserved. Designed & developed by Targoon.</span>
+                <span>© 2025 Targoon. All rights reserved. Designed by Yazdan Codes.</span>
               </div>
             </div>
           </div>

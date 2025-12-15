@@ -446,63 +446,72 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
         </div>
 
         {/* Navigation */}
-        {mediaList.length > 1 && (
-          <>
-            <button
-              type="button"
-              aria-label="Previous"
-              onClick={prev}
-              style={{
-                position: 'absolute',
-                left: 10,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 40,
-                width: '40px',
-                height: '40px',
-                borderRadius: '360px',
-                margin: '0',
-                display: 'flex',
-                justifyContent: 'center',
-                boxShadow: '0px 0px 20px black',
-                alignItems: 'center',
-                background: 'transparent',
-                backdropFilter: 'invert(50%)',
-                border: '1px solid var(--theme-2)',
-                cursor: 'pointer',
-              }}
-            >
-              ‹
-            </button>
+{mediaList.length > 1 && (
+  <>
+    <button
+      type="button"
+      aria-label="Previous"
+      onClick={prev}
+      style={{
+        position: 'absolute',
+        left: 10,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 40,
+        width: '40px',
+        height: '40px',
+        borderRadius: '360px',
+        margin: '0',
+        display: 'flex',
+        justifyContent: 'center',
+        boxShadow: '0px 0px 20px black',
+        alignItems: 'center',
+        background: 'var(--theme)',
+        border: '1px solid var(--theme-2)',
+        cursor: 'pointer',
+      }}
+    >
+      {/* 💡 REPLACED: Character '‹' with SVG image */}
+      <img 
+        src="/svg/arrow-left.svg" 
+        alt="Previous" 
+        style={{ width: '100%', height: '100%' }} // Style to fill the button size
+      />
+    </button>
 
-            <button
-              type="button"
-              aria-label="Next"
-              onClick={next}
-              style={{
-                position: 'absolute',
-                right: 10,
-                top: '50%',
-                transform: 'translateY(-50%)',
-                zIndex: 40,
-                width: '40px',
-                height: '40px',
-                borderRadius: '360px',
-                margin: '0',
-                display: 'flex',
-                justifyContent: 'center',
-                boxShadow: '0px 0px 20px black',
-                alignItems: 'center',
-                background: 'transparent',
-                backdropFilter: 'blur(10px)',
-                border: '1px solid var(--theme-2)',
-                cursor: 'pointer',
-              }}
-            >
-              ›
-            </button>
-          </>
-        )}
+    <button
+      type="button"
+      aria-label="Next"
+      onClick={next}
+      style={{
+        position: 'absolute',
+        right: 10,
+        top: '50%',
+        transform: 'translateY(-50%)',
+        zIndex: 40,
+        width: '40px',
+        height: '40px',
+        borderRadius: '360px',
+        margin: '0',
+        display: 'flex',
+        justifyContent: 'center',
+        boxShadow: '0px 0px 20px black',
+        alignItems: 'center',
+        background: 'var(--theme)',
+        border: '1px solid var(--theme-2)',
+        cursor: 'pointer',
+        // Removed original text-specific styles (fontSize, letterSpacing, lineHeight)
+      }}
+    >
+      {/* 💡 REPLACED: Character '›' with SVG image */}
+      <img 
+        src="/svg/arrow-right.svg" 
+        alt="Next" 
+        style={{ width: '100%', height: '100%' }} // Style to fill the button size
+      />
+    </button>
+  </>
+)}
       </div>
     </div>
   );

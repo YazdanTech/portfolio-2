@@ -21,7 +21,7 @@ export default function CopyButton() {
   return (
     <div
       onClick={handleClick}
-      className="button p-2 text-(--theme-2) border-b border-(--theme-2) bg-[#000000] transition-all ease duration-500 hover:text-white hover:shadow-(--shadow-2) hover:bg-transparent w-20 text-center m-[0_auto] cursor-pointer"
+      className="button p-2 text-(--theme) border border-(--theme) bg-[#000000] transition-all ease duration-500 hover:text-white hover:shadow-(--shadow-2) hover:bg-transparent w-20 text-center m-[0_auto] cursor-pointer rounded-2xl"
     >
       {text}
     </div>

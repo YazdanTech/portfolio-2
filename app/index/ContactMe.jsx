@@ -10,7 +10,7 @@ export default function ContactMe({ initialMessage = "" }) {
       <div className="relative w-full flex justify-center">
         <div className="absolute z-30 bg-black top-0 right-0 bottom-0 left-0"></div>
         <Bubbles />
-        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme) border-t border-t-(--theme) shadow-(--div-shadow) pb-20">
+        <div className="min-h-max w-full relative border-b z-40 border-b-(--theme-2) border-t border-t-(--theme-2) shadow-(--contact-shadow) pb-20">
           <div className="text-5xl lg:text-8xl md:text-7xl font-thin my-30 text-center">
             <ShinyText 
               text="Contact Me"

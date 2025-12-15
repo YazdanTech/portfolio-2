@@ -25,6 +25,7 @@
   --white: #DDEEDF;
   --gray: #BFAFB2;
   --theme: #636c77;
+  --bottom-div-shadow-1: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px black, 0px 0px 200px black, 0px 0px 300px black, 0px 0px 500px var(--theme-2);
   --theme-transparent: #636c77;
   --theme-2: #32174D;
   --theme-2-transparent: #32174D;
@@ -33,7 +34,8 @@
   --shadow-s-1: 0px 0px 50px var(--theme);
   --shadow-div: 5px 5px 20px black;
   --shadow-div-hover: 10px 20px 40px black;
-  --div-shadow: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px black, 0px 0px 200px black, 0px 0px 300px black, 0px 0px 500px black;
+  --div-shadow: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px black, 0px 0px 200px black, 0px 0px 300px black, 0px 0px 500px var(--theme-2);
+  --contact-shadow: 0px 0px 10px var(--theme-2), 0px 0px 30px var(--theme-2), 0px 0px 50px var(--theme-2), 0px 0px 100px var(--theme-2), 0px 0px 200px var(--theme-2), 0px 0px 300px var(--theme-2), 0px 0px 500px var(--theme-2);
   --chaotic-shadow: 0px 0px 10px black, 0px 0px 30px black, 0px 0px 50px black, 0px 0px 100px var(--theme-2), 0px 0px 200px var(--theme-2), 0px 0px 300px var(--theme-2), 0px 0px 500px var(--theme-2);
   --shadow-black: 0px 0px 30px black;
   --subtle: rgba(255, 255, 255, 0.075);

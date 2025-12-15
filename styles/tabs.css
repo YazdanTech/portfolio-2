@@ -1,113 +1,113 @@
 label {
-    display: block;
-    color: white;
-    font-size: 1.5rem;
-    margin-top: 50px;
-    margin-bottom: 10px;
-    font-weight: 100;
+  display: block;
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  font-weight: 100;
 }
 
 input,
 textarea {
-    width: calc(100% - 10px);
-    padding: 10px;
-    margin-left: 10px;
-    border: 1px solid var(--theme);
-    background: rgba(255, 255, 255, 0.05);
-    color: white;
-    font-family: "outfit", "Nuniro", arial;
-    outline: none;
-    transition: all ease 2s;
-    font-weight: 100;
+  width: calc(100% - 10px);
+  padding: 10px;
+  margin-left: 10px;
+  border: 1px solid var(--theme);
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-family: "outfit", "Nuniro", arial;
+  outline: none;
+  transition: all ease 2s;
+  font-weight: 100;
 }
 
 input:hover::placeholder,
 textarea:hover::placeholder {
-    color: rgba(255, 255, 255, 0.089);
+  color: rgba(255, 255, 255, 0.089);
 }
 
 input::placeholder,
 textarea::placeholder {
-    font-family: "outfit", "Nuniro", arial;
-    transition: 0.6s ease all;
+  font-family: "outfit", "Nuniro", arial;
+  transition: 0.6s ease all;
 }
 
 input:hover,
 textarea:hover {
-    background-color: rgba(0, 0, 0, 0.055);
-    border: 1px solid transparent;
-    border-left: 1px solid var(--theme-2);
+  background-color: rgba(0, 0, 0, 0.055);
+  border: 1px solid transparent;
+  border-left: 1px solid var(--theme-2);
 }
 
 input:focus,
 textarea:focus {
-    border-color: var(--theme-2);
-    box-shadow: 0 5px 30px black;
-    transform: translate(0px, -5px);
+  border-color: var(--theme-2);
+  box-shadow: 0 5px 30px black;
+  transform: translate(0px, -5px);
 }
 
 #btn {
-    background: black;
-    color: var(--theme);
-    font-weight: 400;
-    margin: 0 auto;
-    box-shadow: 0px 0px 50px var(--theme);
-    font-family: "outfit", "Nuniro", arial;
-    border: 1px solid var(--theme);
-    padding: 12px 30px;
-    font-size: 1.2rem;
-    border-radius: 30px;
-    cursor: pointer;
-    transition: all ease 2s;
-    margin-top: 20px;
+  background: black;
+  color: var(--theme);
+  font-weight: 400;
+  margin: 0 auto;
+  box-shadow: 0px 0px 20px var(--theme);
+  font-family: "outfit", "Nuniro", arial;
+  border: 1px solid var(--theme);
+  padding: 12px 30px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all ease 2s;
+  margin-top: 20px;
 }
 
 #btn:hover {
-    color: var(--theme-2);
-    box-shadow: 0px 0px 50px var(--theme-2);
-    transition: all ease 0.6s;
-    background-color: black;
-    border: 1px solid var(--theme-2);
-    transform: translate(0px, -5px);
+  color: var(--theme-2);
+  box-shadow: 0px 0px 30px var(--theme-2);
+  transition: all ease 0.6s;
+  background-color: black;
+  border: 1px solid var(--theme-2);
+  transform: translate(0px, -5px);
 }
 
 
 /* base state: invisible */
 
 .overlay {
-    position: absolute;
-    /* covers the form */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: black;
-    opacity: 0;
-    pointer-events: none;
-    /* so clicks don't get blocked */
-    transition: opacity 1s ease;
-    z-index: 50;
-    /* ABOVE content */
+  position: absolute;
+  /* covers the form */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: black;
+  opacity: 0;
+  pointer-events: none;
+  /* so clicks don't get blocked */
+  transition: opacity 1s ease;
+  z-index: 50;
+  /* ABOVE content */
 }
 
 
 /* visible state: fade in */
 
 .overlay.visible {
-    opacity: 1;
-    pointer-events: auto;
-    /* block clicks while fading */
+  opacity: 1;
+  pointer-events: auto;
+  /* block clicks while fading */
 }
 
 .tab-active {
-    border-bottom: 1px solid var(--theme);
-    color: var(--theme);
+  border-bottom: 1px solid var(--theme);
+  color: var(--theme);
 }
 
 .error-box {
-    padding: 10px;
-    border: 1px solid red;
-    color: red;
-    margin-bottom: 20px;
-    font-size: 14px;
+  padding: 10px;
+  border: 1px solid red;
+  color: red;
+  margin-bottom: 20px;
+  font-size: 14px;
 }
