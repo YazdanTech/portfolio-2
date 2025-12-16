@@ -23,9 +23,9 @@ export default function ServicesList({ services, onRequestService, onShowExample
 
           {/* Buttons */}
           <div className="flex gap-5 justify-center my-10">
-            <button className="shiny-cta-slow shiny-cta" type="button" onClick={() => onShowExample(item.exampleId)}>
+            {/* <button className="shiny-cta-slow shiny-cta" type="button" onClick={() => onShowExample(item.exampleId)}>
               Example
-            </button>
+            </button> */}
 
             <button className="shiny-cta shiny-cta-slow shiny-cta-2" type="button" onClick={() => onRequestService(item.prefillMessage)}>
               Book Now
