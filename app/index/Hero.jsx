@@ -41,7 +41,7 @@ export default function Hero() {
             
             <div className="text-5xl lg:text-8xl md:text-7xl font-thin mb-3 ">
               <ShinyText 
-                text="Yazdan Codes"
+                text="Yazdan Tech"
                 disabled={false}
                 speed={3}
               />

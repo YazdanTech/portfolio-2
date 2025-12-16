@@ -13,18 +13,22 @@ const cardData = [
   {
     color: 'transparent',
     title: 'Progress',
-    techs: 'Next.js, React, HTML, CSS',
+    techs: 'HTML, CSS, JS, Python, Django, Responsive',
+    github: 'https://github.com/YazdanTech/progress',
+    website: 'https://progressineternity.pythonanywhere.com',
     folder: 'pp',
     images: `1.png, 2.png, 3.png, 4.png, desktop (1).MOV, desktop (2).MOV, desktop (3).MOV, phone (1).MOV, phone (2).MOV, phone (3).MOV`,
-    description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
+    description: 'A proof-of-concept and prototype development for a unique self-development application utilizing Neuro-Linguistic Programming (NLP) principles within a gamified framework. The core technical challenge involved modeling abstract personal growth concepts into quantifiable, trackable digital metrics.',
   },
   {
     color: 'transparent',
-    title: 'Meysam Deris',
-    techs: 'HTML, CSS, JS, Animations, Responsive, Django, CMS',
+    title: 'The First',
+    techs: 'HTML, CSS, JS, Animations, Responsive, Luxury Design',
     folder: 'the1st',
+    github: 'https://github.com/YazdanTech/the-first',
+    website: 'https://the1st.co',
     images:  `1.png, 2.png, 3.png, phone (1).MOV, phone (2).MOV, phone (3).MOV, phone (4).MOV, v1.MOV, v2.MOV, v3.MOV, v4.MOV`,
-    description: 'this project was so cool yea but i did it fast because he wanted osmething modern and cool like me you know haha',
+    description: 'A sophisticated, design-focused front-end implementation for a strategic consulting firm linking European technology and GCC investment. This project prioritized user experience (UX) and brand alignment to present a professional, high-trust digital interface suitable for high-value B2B engagement.',
   },
 ];
 
@@ -406,13 +410,16 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
                 autoPlay
                 playsInline
                 style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+                // 🚨 FIX 1: Add rounded border class to video
+                className="rounded-2xl overflow-hidden" 
               />
             ) : (
               <Image
                 src={`/experience/${folder}/${prevSrc}`}
                 alt=""
                 fill
-                className="object-contain"
+                // ✅ Keep the class, ensures image respects parent boundaries if overflow is set
+                className="object-contain rounded-2xl" 
               />
             )}
           </div>
@@ -423,6 +430,8 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
           style={{
             ...slideStyle,
             zIndex: 30,
+            // The outer div has overflow-hidden, but we need to ensure the slide div respects the border
+            borderRadius: '16px', 
             opacity: transitioning ? 1 : prevIndex == null ? 1 : 0
           }}
         >
@@ -433,18 +442,19 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
               playsInline
               autoPlay
               style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+              // 🚨 FIX 2: Add rounded border class to video (use consistent 2xl/16px)
+              className="rounded-2xl overflow-hidden"
             />
           ) : (
             <Image
               src={`/experience/${folder}/${src}`}
               alt=""
               fill
-              className="object-contain"
+              className="object-contain rounded-2xl"
               priority={index === 0}
             />
           )}
         </div>
-
         {/* Navigation */}
 {mediaList.length > 1 && (
   <>
@@ -911,10 +921,10 @@ const MagicBento = ({
 
                       <div className="flex justify-evenly my-3">
                         <button className="neon-btn">
-                          Github
+                          <a href={card.github} target='_blank'>Github</a>
                         </button>
                         <button className="shiny-cta">
-                          <span>View Website</span>
+                          <span><a href={card.website} target='_blank'>View Website</a></span>
                         </button>
 
                       </div>

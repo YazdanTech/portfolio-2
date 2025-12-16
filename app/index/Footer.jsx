@@ -125,7 +125,7 @@ export default function Footer() {
               </div>
               </div>
               <div className="copy-right mt-20 lg:mt-10 text-center text-md opacity-50">
-                <span>© 2025 Targoon. All rights reserved. Designed by Yazdan Codes.</span>
+                <span>© 2025 Targoon. All rights reserved. Designed by Yazdan Tech.</span>
               </div>
             </div>
           </div>
