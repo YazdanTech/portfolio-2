@@ -1,5 +1,4 @@
 import ShinyText from '../../components/open source/ShinyText';
-import CurvedLoop from '../../components/open source/CurvedLoop';
 import InfiniteMenu from '../../components/open source/InfiniteMenu'
 import BetweenScroll from "../../components/mine/BetweenScroll";
 
