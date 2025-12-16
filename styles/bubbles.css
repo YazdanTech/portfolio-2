@@ -1,143 +1,153 @@
 .bubbles {
-    z-index: 40;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  z-index: 40;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .bubble {
-    background-color: var(--theme);
-    position: absolute;
-    filter: blur(80px);
-    border-radius: 50%;
-    width: 10rem;
-    height: 10rem;
+  background-color: var(--theme);
+  position: absolute;
+  filter: blur(80px);
+  border-radius: 50%;
+  /* Keep width/height here as base size */
+  width: 10rem;
+  height: 10rem;
+  /* 🚨 ADD WILL-CHANGE: Tells the browser to prepare these elements for GPU acceleration */
+  will-change: transform, filter, background-color, opacity;
 }
 
 .bubble-1 {
-    top: -10%;
-    width: 20rem;
-    filter: blur(170px);
-    height: 20rem;
-    left: -20%;
-    animation: bottomReturn 12s ease-in-out infinite;
-    /* display: none; */
+  top: -10%;
+  width: 20rem;
+  filter: blur(170px);
+  height: 20rem;
+  left: -20%;
+  animation: bottomReturnOptimized 12s ease-in-out infinite;
+  /* Updated animation name */
 }
 
 .bubble-3 {
-    filter: blur(50px);
-    width: 5rem;
-    height: 5rem;
-    top: -30%;
-    left: 30%;
-    right: 30%;
-    background-color: black;
-    animation: bubbleFloat 12s ease-in-out infinite;
+  filter: blur(50px);
+  width: 5rem;
+  height: 5rem;
+  top: -30%;
+  left: 30%;
+  /* Removed 'right: 30%;' from here, let position: absolute and left define it for simplicity */
+  background-color: black;
+  animation: bubbleFloatOptimized 12s ease-in-out infinite;
+  /* Updated animation name */
 }
 
 .bubble-2 {
-    bottom: -10%;
-    width: 20rem;
-    filter: blur(170px);
-    height: 20rem;
-    right: -20%;
-    animation: topReturn 12s ease-in-out infinite;
-    /* display: none; */
+  bottom: -10%;
+  width: 20rem;
+  filter: blur(170px);
+  height: 20rem;
+  right: -20%;
+  animation: topReturnOptimized 12s ease-in-out infinite;
+  /* Updated animation name */
 }
 
-@keyframes bubbleFloat {
-    0% {
-        filter: blur(50px);
-        width: 5rem;
-        height: 5rem;
-        top: -30%;
-        background-color: var(--theme-2);
-        left: 30%;
-        right: 30%;
-    }
-    25% {
-        filter: blur(100px);
-        width: 10rem;
-        background-color: var(--theme-2);
-        height: 10rem;
-        top: 10%;
-        left: 30%;
-        right: 30%;
-    }
-    50% {
-        filter: blur(150px);
-        width: 15rem;
-        height: 15rem;
-        background-color: var(--theme-2);
-        top: 40%;
-        left: 30%;
-        right: 30%;
-    }
-    75% {
-        width: 40rem;
-        height: 40rem;
-        background-color: var(--theme-2);
-        top: 50%;
-        left: 30%;
-        right: 30%;
-        opacity: 1;
-    }
-    100% {
-        filter: blur(50px);
-        width: 5rem;
-        height: 5rem;
-        background-color: black;
-        top: -30%;
-        left: 30%;
-        right: 30%;
-        opacity: 0;
-    }
+
+/* ---------------------------------------------------------------------- */
+
+
+/* 🚀 OPTIMIZED KEYFRAMES */
+
+
+/* ---------------------------------------------------------------------- */
+
+@keyframes bubbleFloatOptimized {
+  0% {
+    filter: blur(50px);
+    background-color: var(--theme-2);
+    opacity: 1;
+    /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
+    transform: translate(0, 0) scale(1);
+    /* Base scale 5rem/10rem = 0.5 */
+  }
+  25% {
+    filter: blur(100px);
+    background-color: var(--theme-2);
+    /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
+    transform: translate(50%, 40vh) scale(2);
+  }
+  50% {
+    filter: blur(150px);
+    background-color: var(--theme-2);
+    /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
+    transform: translate(100%, 70vh) scale(3);
+  }
+  75% {
+    filter: blur(200px);
+    background-color: var(--theme-2);
+    opacity: 1;
+    /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
+    transform: translate(150%, 80vh) scale(8);
+    /* Corresponds to 40rem size change */
+  }
+  100% {
+    filter: blur(50px);
+    background-color: black;
+    opacity: 0;
+    /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
+    transform: translate(0, 0) scale(1);
+  }
 }
 
-@keyframes topReturn {
-    0% {
-        top: 110%;
-        bottom: -10%;
-    }
-    50% {
-        top: -10%;
-    }
-    100% {
-        top: 110%;
-        bottom: -10%;
-    }
+@keyframes topReturnOptimized {
+  0% {
+    /* 🚨 FIX: Use translate to move the element in the Y direction */
+    transform: translateY(120vh);
+    /* Starts off screen bottom (110% equivalent) */
+  }
+  50% {
+    /* 🚨 FIX: Use translate to move the element in the Y direction */
+    transform: translateY(-50vh);
+    /* Moves off screen top (-10% equivalent) */
+  }
+  100% {
+    /* 🚨 FIX: Use translate to move the element in the Y direction */
+    transform: translateY(120vh);
+  }
 }
 
-@keyframes bottomReturn {
-    0% {
-        top: -10%;
-        bottom: 110%;
-    }
-    50% {
-        bottom: -10%;
-        top: 110%;
-    }
-    100% {
-        top: -10%;
-        bottom: 110%;
-    }
+@keyframes bottomReturnOptimized {
+  0% {
+    /* 🚨 FIX: Use translate to move the element in the Y direction */
+    transform: translateY(-50vh);
+    /* Starts off screen top (-10% equivalent) */
+  }
+  50% {
+    /* 🚨 FIX: Use translate to move the element in the Y direction */
+    transform: translateY(120vh);
+    /* Moves off screen bottom (110% equivalent) */
+  }
+  100% {
+    /* 🚨 FIX: Use translate to move the element in the Y direction */
+    transform: translateY(-50vh);
+  }
 }
+
+
+/* Keep the media query for initial sizing, but animations are now fixed */
 
 @media screen and (max-width: 500px) {
-    .bubble-1 {
-        top: -10%;
-        width: 14rem;
-        filter: blur(120px);
-        height: 14rem;
-        left: -10%;
-    }
-    .bubble-2 {
-        bottom: -10%;
-        width: 14rem;
-        filter: blur(120px);
-        height: 14rem;
-        right: -10%;
-    }
+  .bubble-1 {
+    top: -10%;
+    width: 14rem;
+    filter: blur(120px);
+    height: 14rem;
+    left: -10%;
+  }
+  .bubble-2 {
+    bottom: -10%;
+    width: 14rem;
+    filter: blur(120px);
+    height: 14rem;
+    right: -10%;
+  }
 }
