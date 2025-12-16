@@ -116,10 +116,26 @@ export default function Footer() {
                 <div className="center">
                   <div id="social-test">
                     <ul className="social">
-                      <li><i className="fa fa-telegram" aria-hidden="true"></i></li>
-                      <li><i className="fa fa-twitter" aria-hidden="true"></i></li>
-                      <li><i className="fa fa-instagram" aria-hidden="true"></i></li>
-                      <li><i className="fa fa-github" aria-hidden="true"></i></li>
+                      <li>
+                        <a href="https://t.me/yazdantech" target='_blank'>
+                          <i className="fa fa-telegram" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://x.com/yazdantech" target='_blank'>
+                          <i className="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://instagram.com/yazdantech/" target='_blank'>
+                          <i className="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://github.com/yazdantech" target='_blank'>
+                          <i className="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                      </li>
                     </ul>
                   </div>
               </div>
