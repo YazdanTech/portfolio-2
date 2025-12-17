@@ -6,7 +6,7 @@ import { useState } from "react";
 
 export default function CopyButton() {
   const [text, setText] = useState("Copy");
-  const email = "yazdanthedeveloper@gmail.com"; 
+  const email = "contact@yazdantech.com"; 
 
   const handleClick = async () => {
     try {

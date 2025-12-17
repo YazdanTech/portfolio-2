@@ -70,19 +70,16 @@
     /* Base scale 5rem/10rem = 0.5 */
   }
   25% {
-    filter: blur(100px);
     background-color: var(--theme-2);
     /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
     transform: translate(50%, 40vh) scale(2);
   }
   50% {
-    filter: blur(150px);
     background-color: var(--theme-2);
     /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */
     transform: translate(100%, 70vh) scale(3);
   }
   75% {
-    filter: blur(200px);
     background-color: var(--theme-2);
     opacity: 1;
     /* 🚨 FIX: Replaced top/left/right and width/height with transform and scale */

@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col overflow-hidden">
-      <div className="fixed top-0 bottom-0 left-0 right-0">
+      <div className="fixed top-0 bottom-0 left-0 right-0 z-35">
         <LightRays
           raysOrigin="top"
           raysColor='#636c77'

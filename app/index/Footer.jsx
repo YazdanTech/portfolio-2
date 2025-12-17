@@ -40,7 +40,7 @@ export default function Footer() {
   function goToSamples() {
     showOverlay({
       text: 'This is a fraction of my true potential.',
-      scrollTo: 'technologies'
+      scrollTo: 'experience'
     });
   }
   
@@ -53,7 +53,7 @@ export default function Footer() {
 
         <div className="min-h-max w-full relative z-40 border-t border-t-black shadow-(--chaotic-shadow) pb-20 py-20">
 
-          <div className="flex flex-col m-5 pt-10 p-5 border border-(--theme) gap-5 shadow-(--shadow-2) mb-10">
+          <div className="flex flex-col m-3 pt-10 p-5 border border-(--theme) gap-5 shadow-(--shadow-2) mb-10">
             <div className="flex flex-col lg:flex-row gap-20 ">
               <div className="text-4xl lg:text-4xl md:text-5xl font-thin text-left lg:w-[32%]">
                 <ShinyText 
@@ -70,7 +70,7 @@ export default function Footer() {
                 <div className="email lg:flex-row flex-col flex mt-5">
                   <div className="p-2 border-l-4 border-(--theme-2) mb-5">
                     <h4>
-                      yazdanthedeveloper@gmail.com
+                      contact@yazdantech.com
                     </h4>
                   </div>
                   <CopyButton />

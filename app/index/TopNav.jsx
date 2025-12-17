@@ -58,7 +58,7 @@ const items = [
 
   
   return (
-    <div className="z-10000 fixed bottom-5 left-1/2 right-1/2">
+    <div className="z-10000 fixed bottom-3 left-1/2 right-1/2">
       <Dock 
         items={items}
         className='backdrop-blur-2xl'

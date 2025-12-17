@@ -468,15 +468,15 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
         top: '50%',
         transform: 'translateY(-50%)',
         zIndex: 40,
-        width: '40px',
-        height: '40px',
+        width: '30px',
+        height: '30px',
         borderRadius: '360px',
         margin: '0',
         display: 'flex',
         justifyContent: 'center',
-        boxShadow: '0px 0px 20px black',
+        boxShadow: '0px 0px 10px var(--theme-2)',
         alignItems: 'center',
-        background: 'var(--theme)',
+        background: 'var(--black)',
         border: '1px solid var(--theme-2)',
         cursor: 'pointer',
       }}
@@ -485,7 +485,7 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
       <img 
         src="/svg/arrow-left.svg" 
         alt="Previous" 
-        style={{ width: '100%', height: '100%' }} // Style to fill the button size
+        style={{ width: '100%', height: '100%', filter: 'invert(100%)' }} // Style to fill the button size
       />
     </button>
 
@@ -499,25 +499,23 @@ function MediaCarousel({ mediaList = [], folder, height = 420 }) {
         top: '50%',
         transform: 'translateY(-50%)',
         zIndex: 40,
-        width: '40px',
-        height: '40px',
+        width: '30px',
+        height: '30px',
         borderRadius: '360px',
         margin: '0',
         display: 'flex',
         justifyContent: 'center',
-        boxShadow: '0px 0px 20px black',
+        boxShadow: '0px 0px 10px var(--theme-2)',
         alignItems: 'center',
-        background: 'var(--theme)',
+        background: 'var(--black)',
         border: '1px solid var(--theme-2)',
         cursor: 'pointer',
-        // Removed original text-specific styles (fontSize, letterSpacing, lineHeight)
       }}
     >
-      {/* 💡 REPLACED: Character '›' with SVG image */}
       <img 
         src="/svg/arrow-right.svg" 
         alt="Next" 
-        style={{ width: '100%', height: '100%' }} // Style to fill the button size
+        style={{ width: '100%', height: '100%', filter: 'invert(100%)'}} // Style to fill the button size
       />
     </button>
   </>
@@ -662,7 +660,7 @@ const GlobalSpotlight = ({
 
 const BentoCardGrid = ({ children, gridRef }) => (
   <div
-    className="bento-section flex gap-2 p-2 select-none relative"
+    className="bento-section flex gap-2 select-none relative"
     style={{ fontSize: 'clamp(1rem, 0.9rem + 0.5vw, 1.5rem)' }}
     ref={gridRef}
   >
@@ -722,8 +720,8 @@ const MagicBento = ({
           
           .card-responsive {
             grid-template-columns: 1fr;
-            width: 90%;
-            margin: 0 auto;
+            width: 100%;
+            margin: 10px auto;
             padding: 0.5rem;
           }
           
@@ -818,7 +816,7 @@ const MagicBento = ({
           @media (max-width: 599px) {
             .card-responsive {
               grid-template-columns: 1fr;
-              width: 90%;
+              width: 95%;
               margin: 0 auto;
               padding: 0.5rem;
             }
@@ -877,7 +875,7 @@ const MagicBento = ({
                   clickEffect={clickEffect}
                   enableMagnetism={enableMagnetism}
                 >
-                  <div className="flex flex-col align-center w-full bg-[#00000077] h-full gap-5 p-5 lg:flex-row">
+                  <div className="flex flex-col align-center w-full bg-[#00000077] h-full gap-5 p-3 lg:flex-row">
 
                     <div className="flex-1 flex flex-col justify-evenly">
                       <div className="transition-all h-100 ease-in-out duration-700">
