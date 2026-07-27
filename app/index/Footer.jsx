@@ -70,7 +70,7 @@ export default function Footer() {
                 <div className="email lg:flex-row flex-col flex mt-5">
                   <div className="p-2 border-l-4 border-(--theme-2) mb-5">
                     <h4>
-                      contact@yazdantech.com
+                      yazdan@yazdantech.com
                     </h4>
                   </div>
                   <CopyButton />
@@ -134,6 +134,11 @@ export default function Footer() {
                       <li>
                         <a href="https://github.com/yazdantech" target='_blank'>
                           <i className="fa fa-github" aria-hidden="true"></i>
+                        </a>
+                      </li>
+                      <li>
+                        <a href="https://wa.me/989384272106" target='_blank'>
+                          <i className="fa fa-whatsapp" aria-hidden="true"></i>
                         </a>
                       </li>
                     </ul>

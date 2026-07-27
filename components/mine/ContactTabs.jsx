@@ -44,16 +44,6 @@ export default function ContactTabs({ initialMessage = "" }) {
     return true;
   }
 
-  function sendWhatsApp() {
-    if (!validate()) return;
-
-    // WhatsApp expects the number without '+' or non-digits
-    const myNumber = "989384272106";
-    const body = `Hi, my name is ${name} (${email}).\n\n${message}`;
-    const url = `https://wa.me/${myNumber.replace(/\D/g, '')}?text=${encodeURIComponent(body)}`;
-
-    window.open(url, "_blank");
-  }
 
   // overlay sequence:
   // fade in (1s) -> stay visible (1s) -> fade out (1s)
@@ -119,7 +109,7 @@ export default function ContactTabs({ initialMessage = "" }) {
 
             <div>
               <label>Name</label>
-              <input placeholder="Yazdan Codes" value={name} onChange={(e) => setName(e.target.value)} />
+              <input placeholder="Yazdan Tech" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
 
             <div>
@@ -141,9 +131,7 @@ export default function ContactTabs({ initialMessage = "" }) {
             {error && <div className="error-box">{error}</div>}
 
             <div className="flex gap-5 my-10 justify-center flex-wrap">
-              <button type="button" id="btn" disabled={isSending} onClick={sendWhatsApp}>
-                Send via WhatsApp
-              </button>
+
 
               <button className={`${isSending ? "sending": ''}`} type="button" id="btn" disabled={isSending} onClick={sendEmail}>
                 {isSending ? "Sending Email..": 'Send via Email'}
